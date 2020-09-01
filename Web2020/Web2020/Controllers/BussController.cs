@@ -7,5 +7,6 @@ namespace Web2020.Controllers
 {
     public class BussController
     {
+
     }
 }
