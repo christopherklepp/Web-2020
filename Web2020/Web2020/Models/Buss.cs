@@ -7,6 +7,7 @@ namespace Web2020.Models
 {
     public class Buss
     {
+        public int Id { get; set; }
         public string reiserFra { get; set; }
         public string reserTil { get; set; }
         public string tidspunkten { get; set; }
