@@ -9,7 +9,7 @@ namespace Web2020.Models
     {
         public int Id { get; set; }
         public string reiserFra { get; set; }
-        public string reserTil { get; set; }
+        public string reiserTil { get; set; }
         public string tidspunkten { get; set; }
         public string fornavn { get; set; }
         public string etternavn { get; set; }

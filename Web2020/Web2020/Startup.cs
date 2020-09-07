@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Web2020.Models;
 
 namespace Web2020
 {
@@ -16,12 +17,11 @@ namespace Web2020
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddNewtonsoftJson(options =>
+            /*services.AddControllers().AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-        // m? v?re med n?r det skal serialiseres "kompliserte" strukturer til JSON. 
-        // i tillegg m? Microsoft.AspNetCore.NewtonsoftJson installeres som pakke
-        );
-            services.AddDbContext<DB>(options => options.UseSqlite("Data Source=Kunde.db"));
+            );*/
+            services.AddControllers();
+            services.AddDbContext<BussContext>(options => options.UseSqlite("Data Source=Buss.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +34,7 @@ namespace Web2020
 
             app.UseRouting();
 
-            app.UseStaticFiles(); //merk denne! 
+            app.UseStaticFiles(); //merk denne!
 
             app.UseEndpoints(endpoints =>
             {

@@ -9,19 +9,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Web2020.Models
 {
-    class Busser
+    public class Kunde
     {
-        public int Id { get; set; }
-        public String reiserFra { get; set; }
-        public String reiserTil { get; set; }
-        public String tidspunkten { get; set; }
         public String fornavn { get; set; }
         public String etternavn { get; set; }
         public String adresse { get; set; }
         public String telefonnr { get; set; }
+        public virtual List<Reise> Reiser { get; set; }
     }
-
-
+     public class Reise
+    {
+        public int Id { get; set; }
+        public String reiserFra { get; set; }
+        public String reiserTil { get; set; }
+        public String tidspunkt { get; set; }
+    }
+   
     public class BussContext : DbContext
     {
         public BussContext(DbContextOptions<BussContext> options)
@@ -30,7 +33,8 @@ namespace Web2020.Models
             Database.EnsureCreated();
         }
     
-        public DbSet<Buss> Busser { get; set; }
+        public DbSet<Kunde> Kunder { get; set; }
+        public DbSet<Reise> Reiser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
