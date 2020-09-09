@@ -401,3 +401,4 @@ C:/Users/98eiv/source/repos/web2020/Web2020/Web2020/obj/Debug/netcoreapp3.1/Web2
 /Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/obj/Debug/netcoreapp3.1/Web2020.dll
 /Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/obj/Debug/netcoreapp3.1/Web2020.pdb
 /Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/obj/Debug/netcoreapp3.1/Web2020.genruntimeconfig.cache
+/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/obj/Debug/netcoreapp3.1/Web2020.csprojAssemblyReference.cache
