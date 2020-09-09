@@ -1,15 +1,16 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 using Web2020.Models;
+
 
 namespace Web2020.Controllers
 {
-    [Microsoft.AspNetCore.Components.Route("[controller]/[action]")]
+    [Route("[controller]/[action]")]
 
     public class BussController :ControllerBase
     {

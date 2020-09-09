@@ -5,34 +5,42 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using Microsoft.EntityFrameworkCore;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Web2020.Models
 {
     public class Kunde
     {
-        public String fornavn { get; set; }
-        public String etternavn { get; set; }
-        public String adresse { get; set; }
-        public String telefonnr { get; set; }
+        [Key]
+        public int Kid { get; set; }
+        public string fornavn { get; set; }
+        public string etternavn { get; set; }
+        public string adresse { get; set; }
+        public string telefonnr { get; set; }
         public virtual List<Reise> Reiser { get; set; }
     }
      public class Reise
     {
-        public int Id { get; set; }
-        public String reiserFra { get; set; }
-        public String reiserTil { get; set; }
-        public String tidspunkt { get; set; }
+        [Key]
+        public int Rid { get; set; }
+        public string reiserFra { get; set; }
+        public string reiserTil { get; set; }
+        public string tidspunkt { get; set; }
     }
    
     public class BussContext : DbContext
     {
+        /*
         public BussContext(DbContextOptions<BussContext> options)
          : base(options)
         {
             Database.EnsureCreated();
+        }*/
+        public BussContext(DbContextOptions<BussContext> options) : base(options)
+        {
+            Database.EnsureCreated();
         }
-    
+
         public DbSet<Kunde> Kunder { get; set; }
         public DbSet<Reise> Reiser { get; set; }
 
