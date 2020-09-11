@@ -1,25 +1,48 @@
-<<<<<<< Updated upstream
-﻿function hentAlle() {
+
+function hentAlle() {
     $.get("buss/HentAlle", function () {
         console.log("Test");
     });
-=======
-﻿
 
-$(function () {
-    hentAlleBusser();
-});
-
-
-function hentAlle() {
-    $.get("buss/ HentAlle", function (busser)
-        skrivUt(busser);
 }
+$(document).ready(function () {
 
-function skrivUt(busser) {
-    for (let buss of busser) {
-        document.write("Kundenavn: " + buss.fornavn + "<br>");
-        
-    }
->>>>>>> Stashed changes
-}
+    $('#RegistreringForm').validate({ // initialize the plugin
+        rules: {
+            field1: {
+                required: true,
+                
+            },
+            field2: {
+                required: true,
+                minlength: 5
+            }
+            field3: {
+                required: true,
+                
+            }
+            field4: {
+                required: true,
+                minlength: 2
+
+            }
+            field5: {
+                required: true,
+                minlength: 2
+
+            }
+            field6: {
+                required: true,
+                minlength: 2
+
+            }
+            field7: {
+                required: true,
+                minlength: 2
+
+            }
+        }
+    });
+
+});﻿
+

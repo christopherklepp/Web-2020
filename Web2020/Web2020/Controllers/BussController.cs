@@ -37,7 +37,7 @@ namespace Web2020.Controllers
                         telefonnr = enKunde.telefonnr,
                         reiserFra = best.reiserFra,
                         reiserTil = best.reiserTil,
-                        tidspunkten = best.tidspunkt
+                        tidspunkt = best.tidspunkt
                     };
                     alleBestillinger.Add(bestilling);
                 }
@@ -45,15 +45,19 @@ namespace Web2020.Controllers
             return alleBestillinger;
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<bool> SettInnData(Buss buss)
+
         {
             try
             {
+               
                 var reise = new Reise
                 {
                     reiserFra = buss.reiserFra,
                     reiserTil = buss.reiserTil,
-                    tidspunkt = buss.tidspunkten
+                    tidspunkt = buss.tidspunkt
                 };
                 var kunde = new Kunde
                 {

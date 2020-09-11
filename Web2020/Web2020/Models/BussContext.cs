@@ -25,7 +25,7 @@ namespace Web2020.Models
         public int Rid { get; set; }
         public string reiserFra { get; set; }
         public string reiserTil { get; set; }
-        public string tidspunkt { get; set; }
+        public DateTime tidspunkt { get; set; }
     }
    
     public class BussContext : DbContext
