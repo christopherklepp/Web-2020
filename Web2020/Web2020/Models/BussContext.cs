@@ -30,12 +30,6 @@ namespace Web2020.Models
    
     public class BussContext : DbContext
     {
-        /*
-        public BussContext(DbContextOptions<BussContext> options)
-         : base(options)
-        {
-            Database.EnsureCreated();
-        }*/
         public BussContext(DbContextOptions<BussContext> options) : base(options)
         {
             Database.EnsureCreated();

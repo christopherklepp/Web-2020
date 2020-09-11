@@ -52,12 +52,12 @@ namespace Web2020.Controllers
         {
             try
             {
-               
+                DateTime dt = new DateTime(2010, 08, 07);
                 var reise = new Reise
                 {
                     reiserFra = buss.reiserFra,
                     reiserTil = buss.reiserTil,
-                    tidspunkt = buss.tidspunkt
+                    tidspunkt = dt
                 };
                 var kunde = new Kunde
                 {
