@@ -1,4 +1,18 @@
-﻿function lagreBestilling () {
+﻿function validerogLagreBestilling() {
+    const fraReiseOK = validFraReise($("#reiseFra").val());
+    const tilReiseOK = validTilReise($("#reiseTil#").val());
+    const tidspunktOK = validTidspunkt($("#tidspunkt").val());
+    const fornavnOK = validFornavn($("#fornavn").val());
+    const etternavnOK = validEtternavn($("#etternavn").val());
+    const adresseOK = validAdresse($("#adresse").val());
+    const telefonnrOK = validTelefonNr($("#telefonnr").val());
+    if (fraReiseOK && tilReiseOK && tidspunktOK && fornavnOK && etternavnOK && adresseOK && telefonnrOK) {
+        lagreBestilling();
+    }
+}
+
+
+function lagreBestilling() {
     const buss = {
         fraReise: $("#reiseFra").val(),
         tilReise: $("#reiseTil").val(),
