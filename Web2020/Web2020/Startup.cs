@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Web2020.DAL;
 using Web2020.Models;
 
 namespace Web2020
@@ -22,6 +23,7 @@ namespace Web2020
             );*/
             services.AddControllers();
             services.AddDbContext<BussContext>(options => options.UseSqlite("Data Source=Buss.db"));
+            services.AddScoped<IBussRepository, BussRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
