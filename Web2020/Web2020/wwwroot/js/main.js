@@ -1,11 +1,5 @@
 
-function hentAlle() {
-    $.get("buss/HentAlle", function () {
-        console.log("Test");
-    });
-
-}
-$(document).ready(function () {
+/*$(document).ready(function () {
 
     $('#RegistreringForm').validate({ // initialize the plugin
         rules: {
@@ -44,5 +38,7 @@ $(document).ready(function () {
         }
     });
 
-});﻿
+});﻿*/
+
+
 
