@@ -19,14 +19,15 @@ namespace Web2020.Controllers
         {
             _db = db;
         }
-        public async Task<bool> SettInnData(Buss buss)
-        {
-            return await _db.SettInnData(buss);
-        }
 
-        public async Task<List<Buss>> HentAlle()
-        {
-            return await _db.HentAlle();
-        }
+        public async Task<bool> SettInnData(Buss buss)
+         {
+             return await _db.SettInnData(buss);
+         }
+
+         public async Task<List<Buss>> HentAlle()
+         {
+             return await _db.HentAlle();
+         }
     }
 }

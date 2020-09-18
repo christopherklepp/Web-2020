@@ -16,23 +16,24 @@ namespace Web2020.DAL
             _db = db;
         }
 
-        public async Task<List<Buss>> HentAlle()
+        
+       public async Task<List<Buss>> HentAlle()
         {
             List<Kunde> alleKunder = await _db.Kunder.ToListAsync();
             List<Buss> alleBestillinger = new List<Buss>();
 
             foreach (Kunde enKunde in alleKunder)
             {
-                foreach (var best in enKunde.Reiser)
-                {
+                foreach (var best in enKunde.Bestilling)
+                {  
                     var bestilling = new Buss
-                    {
+                    {   
                         fornavn = enKunde.fornavn,
                         etternavn = enKunde.etternavn,
                         adresse = enKunde.adresse,
                         telefonnr = enKunde.telefonnr,
-                        reiserFra = best.reiserFra,
-                        reiserTil = best.reiserTil,
+                        reiserFra = best.reiser.reiserFra,
+                        reiserTil = best.reiser.reiserTil,
                         tidspunkt = best.tidspunkt
                     };
                     alleBestillinger.Add(bestilling);
@@ -47,12 +48,7 @@ namespace Web2020.DAL
         {
             try
             {
-                var reise = new Reise
-                {
-                    reiserFra = buss.reiserFra,
-                    reiserTil = buss.reiserTil,
-                    tidspunkt = buss.tidspunkt
-                };
+                Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
                 var kunde = new Kunde
                 {
                     fornavn = buss.fornavn,
@@ -60,8 +56,14 @@ namespace Web2020.DAL
                     adresse = buss.adresse,
                     telefonnr = buss.telefonnr
                 };
-                kunde.Reiser = new List<Reise>();
-                kunde.Reiser.Add(reise);
+                var bestilling = new Bestilling
+                {
+                    tidspunkt = buss.tidspunkt,
+                    reiser = funnetReise
+                };
+
+                kunde.Bestilling = new List<Bestilling>();
+                kunde.Bestilling.Add(bestilling);
                 _db.Kunder.Add(kunde);
                 await _db.SaveChangesAsync();
                 return true;

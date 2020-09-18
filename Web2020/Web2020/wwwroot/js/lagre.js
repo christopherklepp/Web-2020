@@ -13,6 +13,7 @@
     }
 }*/
 
+
 function lagreBestilling() {
     const buss = {
         reiserFra: $("#reiseFra").val(),

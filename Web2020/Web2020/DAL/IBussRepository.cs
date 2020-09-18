@@ -8,7 +8,7 @@ namespace Web2020.DAL
 {
     public interface IBussRepository
     {
-        Task<List<Buss>> HentAlle();
-        Task<bool> SettInnData(Buss buss);
+       Task<List<Buss>> HentAlle();
+       Task<bool> SettInnData(Buss buss);
     }
 }
