@@ -31,3 +31,11 @@ function lagreBestilling() {
         window.location.href = "bekreftelse.html";
     });
 }
+
+$(function () {
+    console.log("ja");
+    $.get("buss/HentReise", function (bestilling) {
+        console.log("hei");
+        formaterOversikt(bestilling)
+    });
+});

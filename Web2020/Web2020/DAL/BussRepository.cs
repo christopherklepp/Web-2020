@@ -16,8 +16,35 @@ namespace Web2020.DAL
             _db = db;
         }
 
-        
-       public async Task<List<Buss>> HentAlle()
+
+        //Returnerer en liste med alle steder fra databasen
+        public async Task<List<Reise>> HentReiser()
+        {
+            try
+            {
+                var steder = await _db.Reiser.ToListAsync();
+                var returnList = new List<Reise>();
+
+                foreach (Reise s in steder)
+                {
+                    returnList.Add(new Reise
+                    {
+                        Rid = s.Rid,
+                        reiserFra = s.reiserFra,
+                        reiserTil = s.reiserTil
+                    });
+                }
+
+                return returnList;
+
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+            public async Task<List<Buss>> HentAlle()
         {
             List<Kunde> alleKunder = await _db.Kunder.ToListAsync();
             List<Buss> alleBestillinger = new List<Buss>();
@@ -72,6 +99,11 @@ namespace Web2020.DAL
             {
                 return false;
             }
+        }
+
+        public Task<List<Reise>> HentReier()
+        {
+            throw new NotImplementedException();
         }
     }
 }
