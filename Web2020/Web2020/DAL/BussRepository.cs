@@ -40,7 +40,6 @@ namespace Web2020.DAL
             }
             catch
             {
-
                 return null;
             }
         }
@@ -101,9 +100,5 @@ namespace Web2020.DAL
             }
         }
 
-        public Task<List<Reise>> HentReier()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

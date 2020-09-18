@@ -29,5 +29,10 @@ namespace Web2020.Controllers
          {
              return await _db.HentAlle();
          }
+
+        public async Task<List<Reise>> HentReiser()
+        {
+            return await _db.HentReiser();
+        }
     }
 }

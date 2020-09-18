@@ -10,6 +10,6 @@ namespace Web2020.DAL
     {
        Task<List<Buss>> HentAlle();
        Task<bool> SettInnData(Buss buss);
-       Task<List<Reise>> HentReier();
+       Task<List<Reise>> HentReiser();
     }
 }

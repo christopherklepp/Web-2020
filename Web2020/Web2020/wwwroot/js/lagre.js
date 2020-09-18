@@ -34,8 +34,17 @@ function lagreBestilling() {
 
 $(function () {
     console.log("ja");
-    $.get("buss/HentReise", function (bestilling) {
+    $.get("buss/HentReiser", function (reiser) {
         console.log("hei");
-        formaterOversikt(bestilling)
+        formaterOversikt(reiser)
     });
 });
+
+function formaterOversikt(reiser) {
+    let ut;
+    for (let enReise of reiser) {
+        ut += "<option value='" + enReise.fraReise.val() + "'>" + enReise.fraReise + "</option>";
+    }
+
+    $("#reiseFra").html(ut);
+}
