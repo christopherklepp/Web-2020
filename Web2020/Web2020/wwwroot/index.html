@@ -8,6 +8,118 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous"></script>
     <script src="js/lagre.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #fff;
+            background: #63738a;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .form-control {
+            height: 40px;
+            box-shadow: none;
+            color: #969fa4;
+        }
+
+            .form-control:focus {
+                border-color: #5cb85c;
+            }
+
+        .form-control, .btn {
+            border-radius: 3px;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .container h2 {
+            color: #636363;
+            margin: 0 0 15px;
+            position: relative;
+            text-align: center;
+        }
+
+        .container h2:before, .container h2:after {
+            content: "";
+            height: 2px;
+            width: 30%;
+            background: #d4d4d4;
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+        }
+
+        .container h2:before {
+            left: 0;
+        }
+
+        .container h2:after {
+            right: 0;
+        }
+
+        .container .hint-text {
+            color: #999;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .container form {
+            color: #999;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            background: #f2f3f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        .container .form-group {
+            margin-bottom: 20px;
+        }
+
+        .container input[type="checkbox"] {
+            margin-top: 3px;
+        }
+
+        .container .btn {
+            font-size: 16px;
+            font-weight: bold;
+            min-width: 140px;
+            outline: none !important;
+        }
+
+        .container .row div:first-child {
+            padding-right: 10px;
+        }
+
+        .container .row div:last-child {
+            padding-left: 10px;
+        }
+
+        .container a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .container a:hover {
+            text-decoration: none;
+        }
+
+        .container form a {
+            color: #5cb85c;
+            text-decoration: none;
+        }
+
+        .container form a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,54 +128,46 @@
             <a href="oversikt.html">Se Bestillinger</a>
         </div>
         <form id="RegistreringForm">
-            <table>
-                <tr><th>Bestill reise</th></tr>
-                <tr>
-                    <td>Fra</td>
-                    <td>
-                        <select id="reiseFra">
+            <div class="form-group">
+                <label for="fra">Fra</label>
+                <select class="form-control" id="reiseFra">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Til">Til</label>
+                <select id="reiseTil" class="form-control">
+                    <option value="Oslo">Oslo</option>
+                    <option value="Bergen">Bergen</option>
+                    <option value="Trondheim">Trondheim</option>
+                    <option value="Kristiansand">Kristiansand</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Dato</label>
+                <input type="datetime-local" class="form-control" id="tidspunkt" />
+            </div>
+            <div class="form-group">
+                <label>Kunde registrering(Valgfritt)</label>
 
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Til</td>
-                    <td>
-                        <select id="reiseTil">
-                            <option value="Oslo">Oslo</option>
-                            <option value="Bergen">Bergen</option>
-                            <option value="Trondheim">Trondheim</option>
-                            <option value="Kristiansand">Kristiansand</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Tidspunkt</td>
-                    <td><input type="datetime-local" id="tidspunkt" /></td>
-                </tr>
-                <tr>
-                    <th>Kunde registrering(Valgfritt)</th>
-                </tr>
-                <tr>
-                    <td>Fornavn</td>
-                    <td><input type="text" id="fornavn" /></td>
-                </tr>
-                <tr>
-                    <td>Etternavn</td>
-                    <td><input type="text" id="etternavn" /></td>
-                </tr>
-                <tr>
-                    <td>Adresse</td>
-                    <td><input type="text" id="adresse" /></td>
-                </tr>
-                <tr>
-                    <td>Telefonnr</td>
-                    <td><input type="text" id="telefonnr" /></td>
-                </tr>
-                <tr>
-                    <td><input type="button" id="knappBestilling" value="Bestill" onclick="lagreBestilling()" /></td>
-                </tr>
-            </table>
+            </div>
+            <div class="form-group">
+                <label for="fornavn">Fornavn:</label>
+                <input type="text" class="form-control" id="fornavn">
+            </div>
+            <div class="form-group">
+                <label for="etternavn">Etternavn:</label>
+                <input type="text" class="form-control" id="etternavn">
+            </div>
+            <div class="form-group">
+                <label for="etternavn">Adresse:</label>
+                <input type="text" id="adresse" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="etternavn">Telefonnr:</label>
+                <input type="text" id="telefonnr" class="form-control" />
+            </div>
+            <input type="button" id="knappBestilling" class="btn btn-success btn-lg btn-block" value="Bestill" onclick="lagreBestilling()" />
+            
         </form>
     </div>
 </body>
