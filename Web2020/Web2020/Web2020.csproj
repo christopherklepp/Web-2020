@@ -21,4 +21,7 @@
     </PackageReference>
     <PackageReference Include="jQuery.Validation" Version="1.19.2" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
 </Project>
