@@ -33,18 +33,34 @@ function lagreBestilling() {
 }
 
 $(function () {
-    console.log("ja");
     $.get("buss/HentReiser", function (reiser) {
-        console.log("hei");
-        formaterOversikt(reiser)
+        formaterFraReiser(reiser);
+        formaterTilReiser(reiser);
     });
 });
 
-function formaterOversikt(reiser) {
+function formaterFraReiser(reiser) {
     let ut;
     for (let enReise of reiser) {
-        ut += "<option value='" + enReise.fraReise.val() + "'>" + enReise.fraReise + "</option>";
+        ut += "<option value='" + enReise.reiserFra + "'>" + enReise.reiserFra + "</option>";
     }
 
     $("#reiseFra").html(ut);
+}
+
+function tilReiser() {
+    $.get("buss/HentReiser", function (reiser) {
+        formaterTilReiser(reiser)
+    });
+}
+
+function formaterTilReiser(reiser) {
+    let reiserFra = $("#reiseFra").val();
+    let ut;
+    for (let enReise of reiser) {
+        if (reiserFra == enReise.reiserFra)
+            ut += "<option value='" + enReise.reiserTil + "'>" + enReise.reiserTil + "</option>";
+    }
+
+    $("#reiseTil").html(ut);
 }
