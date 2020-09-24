@@ -18,16 +18,16 @@ namespace Web2020.Models
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime tidspunkt { get; set; }
-        /*[RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
-        [StringLength(20)]*/
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [StringLength(20)]
         public string fornavn { get; set; }
-        /*[RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
-        [StringLength(20)]*/
+        [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
+        [StringLength(20)]
         public string etternavn { get; set; }
-        /*[RegularExpression(@"^[A-Z]+[a-zA-Z0-9]*$")]
-        [StringLength(20)]*/
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9]*$")]
+        [StringLength(20)]
         public string adresse { get; set; }
-        /*[RegularExpression(@"^(0047|\+47|47)?[2-9]\d{7}*$")]
+        /*[RegularExpression(@"^[2-9]\d{7}*$")]
         [StringLength(20)]*/
         public string telefonnr { get; set; }
     }
