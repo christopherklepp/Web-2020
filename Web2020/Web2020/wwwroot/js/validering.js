@@ -39,7 +39,7 @@ function validerAdresse(adresse) {
     }
 }
 
-function validerTelefonnr(telefonnr) {
+function validerTelefonNr(telefonnr) {
     var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
     var ok = regexp.test(telefonnr);
     if (!ok) {
