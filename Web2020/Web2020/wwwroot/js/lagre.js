@@ -33,6 +33,7 @@ $(function () {
     $.get("buss/HentReiser", function (reiser) {
         formaterFraReiser(reiser);
         formaterTilReiser(reiser);
+        pris();
     });
 });
 
@@ -48,6 +49,7 @@ function formaterFraReiser(reiser) {
 function tilReiser() {
     $.get("buss/HentReiser", function (reiser) {
         formaterTilReiser(reiser)
+        pris();
     });
 }
 
@@ -60,4 +62,17 @@ function formaterTilReiser(reiser) {
     }
 
     $("#reiseTil").html(ut);
+}
+function pris() {
+    $.get("buss/HentReiser", function (reiser) {
+        let reiserFra = $("#reiseFra").val()
+        let reiserTil = $("#reiseTil").val()
+        let pris;
+        for (let enReise of reiser) {
+            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
+                pris = enReise.pris + " kr";
+                $("#pris").html(pris);
+            }
+        }
+    });
 }
