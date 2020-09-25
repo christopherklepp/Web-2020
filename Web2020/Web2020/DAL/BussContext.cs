@@ -41,8 +41,8 @@ namespace Web2020.Models
     {
         [Key]
         public int PId { get; set; }
-        public string postNr { get; set; }
-        public string postSted { get; set; }
+        public string postnr { get; set; }
+        public string poststed { get; set; }
     }
    
     public class BussContext : DbContext
