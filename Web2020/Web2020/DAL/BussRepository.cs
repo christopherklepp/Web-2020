@@ -43,12 +43,31 @@ namespace Web2020.DAL
                 return null;
             }
         }
-            public async Task<List<Buss>> HentAlle()
-        {
+            public async Task<Buss> SisteBestilling()
+            {
+           
             List<Kunde> alleKunder = await _db.Kunder.ToListAsync();
-            List<Buss> alleBestillinger = new List<Buss>();
+            Kunde sisteBestilling = alleKunder.Last();
+            Buss buss = new Buss
+            {
+                fornavn = sisteBestilling.fornavn,
+                etternavn = sisteBestilling.etternavn,
+                adresse = sisteBestilling.adresse,
+                telefonnr = sisteBestilling.telefonnr
+            };
 
-            foreach (Kunde enKunde in alleKunder)
+            DateTime tidspunkt;
+            string reiserFra;
+            string reiserTil;
+            foreach (var bestilling in sisteBestilling.Bestilling)
+            {
+                buss.tidspunkt = bestilling.tidspunkt;
+                buss.reiserFra = bestilling.reiser.reiserFra;
+                buss.reiserTil = bestilling.reiser.reiserTil;
+            }
+            return buss;
+
+            /*foreach (Kunde enKunde in alleKunder)
             {
                 foreach (var best in enKunde.Bestilling)
                 {  
@@ -65,7 +84,7 @@ namespace Web2020.DAL
                     alleBestillinger.Add(bestilling);
                 }
             }
-            return alleBestillinger;
+            return alleBestillinger;*/
         }
 
         [HttpPost]

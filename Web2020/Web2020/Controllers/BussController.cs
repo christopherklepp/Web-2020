@@ -25,9 +25,9 @@ namespace Web2020.Controllers
              return await _db.SettInnData(buss);
          }
 
-         public async Task<List<Buss>> HentAlle()
+         public async Task<Buss> SisteBestilling()
          {
-             return await _db.HentAlle();
+             return await _db.SisteBestilling();
          }
 
         public async Task<List<Reise>> HentReiser()
