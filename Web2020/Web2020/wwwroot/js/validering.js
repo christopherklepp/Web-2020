@@ -1,4 +1,4 @@
-﻿/* Mangler valideringsfunksjon for tidspunkt, må sjekke regex  */
+﻿/* Mangler valideringsfunksjon for tidspunkt */
 
 function validerFornavn(fornavn) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
@@ -17,7 +17,7 @@ function validerEtternavn(etternavn) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
     const ok = regexp.test(etternavn);
     if (!ok) {
-        $("#feilEtternavn").html("Etternavnet må bestå av kun bokstaver og være på 2 til 20 tegn");
+        $("#feilEtternavn").html("Etternavnet må bestå av kun bokstaver og være på 2 til 20 bokstaver");
         return false;
     }
     else {
@@ -50,34 +50,6 @@ function validerTelefonNr(telefonnr) {
         $("feilTelefonnr").html("");
         return true;
     }
-}
-
-    function validerPostnr(postnr) {
-        var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
-        var ok = regexp.test(postnr);
-        if (!ok) {
-            $("#feilPostnr").html("Postnr må bestå av fire tall")
-            return false;
-        }
-        else {
-            $("feilPostnr").html("");
-            return true;
-        }
-    }
-
-    function validerPoststed(poststed) {
-        var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
-        var ok = regexp.test(poststed);
-        if (!ok) {
-            $("#feilPoststed").html("Poststedet ditt må inkludere din fulle adresse")
-            return false;
-        }
-        else {
-            $("feilPoststed").html("");
-            return true;
-        }
-    }
-
 }
 
 
