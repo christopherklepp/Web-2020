@@ -1,40 +1,38 @@
 ﻿<Properties StartupConfiguration="{38548E02-D75B-4BFA-B1D2-AB5B94E78D2E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Web2020/wwwroot/index.html">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Web2020/Controllers/BussController.cs">
     <Files>
-      <File FileName="Web2020/Models/Buss.cs" Line="30" Column="61" />
-      <File FileName="Web2020/Controllers/BussController.cs" />
-      <File FileName="Web2020/wwwroot/js/oversikt.js" Line="7" Column="4" />
-      <File FileName="Web2020/DAL/BussRepository.cs" />
+      <File FileName="Web2020/Models/Buss.cs" Line="27" Column="53" />
+      <File FileName="Web2020/Controllers/BussController.cs" Line="1" Column="1" />
+      <File FileName="Web2020/wwwroot/js/oversikt.js" />
+      <File FileName="Web2020/DAL/BussRepository.cs" Line="1" Column="1" />
       <File FileName="Web2020/DAL/IBussRepository.cs" />
-      <File FileName="Web2020/wwwroot/js/lagre.js" Line="38" Column="28" />
-      <File FileName="Web2020/DAL/BussContext.cs" />
+      <File FileName="Web2020/wwwroot/js/lagre.js" Line="37" Column="4" />
+      <File FileName="Web2020/DAL/BussContext.cs" Line="1" Column="1" />
       <File FileName="Web2020/wwwroot/index.html" Line="32" Column="28" />
-      <File FileName="Web2020/wwwroot/bekreftelse.html" Line="1" Column="1" />
-      <File FileName="Web2020/wwwroot/oversikt.html" Line="16" Column="1" />
-      <File FileName="Web2020/wwwroot/js/main.js" Line="1" Column="1" />
-      <File FileName="../../../../../../usr/local/share/dotnet/sdk/3.1.401/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" Line="150" Column="5" />
-      <File FileName="Web2020/wwwroot/css/index.css" Line="1" Column="1" />
+      <File FileName="Web2020/wwwroot/bekreftelse.html" />
+      <File FileName="Web2020/wwwroot/js/main.js" />
+      <File FileName="../../../../../../usr/local/share/dotnet/sdk/3.1.401/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" />
+      <File FileName="Web2020/wwwroot/css/index.css" />
+      <File FileName="Web2020/wwwroot/js/validering.js" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Web2020" expanded="True">
             <Node name="Web2020" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="BussController.cs" selected="True" />
+              </Node>
               <Node name="DAL" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
                 <Node name="js" expanded="True" />
-                <Node name="index.html" selected="True" />
               </Node>
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
