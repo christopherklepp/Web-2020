@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NBMURWTARGuqSrGNcsAqLHkGNRUFBm9wfaTzztvtOjjBSlye59ncp7GzuA6QZTxcHTY184rRoSp7uZhHqQuzRw==",
+  "dgSpecHash": "Tcslbo297CZKQDl1838EUeZBqiLvnEb6NkgV+5S5rHkJLvZDqT2jCYvCNKGI1VRSB+JfmLVtKjZkJ+e/R4r8fw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\98eiv\\source\\repos\\web2020\\Web2020\\Web2020\\Web2020.csproj",
+  "projectFilePath": "C:\\Users\\98eiv\\source\\repos\\web2020-master\\Web2020\\Web2020\\Web2020.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\98eiv\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\98eiv\\.nuget\\packages\\jquery\\1.4.4\\jquery.1.4.4.nupkg.sha512",

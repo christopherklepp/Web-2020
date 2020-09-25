@@ -25,8 +25,8 @@ namespace Web2020.Controllers
              return await _db.SettInnData(buss);
          }
 
-         public async Task<Buss> SisteBestilling()
-         {
+        public async Task<Buss> SisteBestilling()
+        {
              return await _db.SisteBestilling();
          }
 

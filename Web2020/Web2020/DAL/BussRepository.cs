@@ -43,9 +43,9 @@ namespace Web2020.DAL
                 return null;
             }
         }
-            public async Task<Buss> SisteBestilling()
-            {
-           
+        public async Task<Buss> SisteBestilling()
+        {
+
             List<Kunde> alleKunder = await _db.Kunder.ToListAsync();
             Kunde sisteBestilling = alleKunder.Last();
             Buss buss = new Buss
@@ -56,9 +56,6 @@ namespace Web2020.DAL
                 telefonnr = sisteBestilling.telefonnr
             };
 
-            DateTime tidspunkt;
-            string reiserFra;
-            string reiserTil;
             foreach (var bestilling in sisteBestilling.Bestilling)
             {
                 buss.tidspunkt = bestilling.tidspunkt;
@@ -66,28 +63,9 @@ namespace Web2020.DAL
                 buss.reiserTil = bestilling.reiser.reiserTil;
             }
             return buss;
-
-            /*foreach (Kunde enKunde in alleKunder)
-            {
-                foreach (var best in enKunde.Bestilling)
-                {  
-                    var bestilling = new Buss
-                    {   
-                        fornavn = enKunde.fornavn,
-                        etternavn = enKunde.etternavn,
-                        adresse = enKunde.adresse,
-                        telefonnr = enKunde.telefonnr,
-                        reiserFra = best.reiser.reiserFra,
-                        reiserTil = best.reiser.reiserTil,
-                        tidspunkt = best.tidspunkt
-                    };
-                    alleBestillinger.Add(bestilling);
-                }
-            }
-            return alleBestillinger;*/
         }
 
-        [HttpPost]
+            [HttpPost]
         public async Task<bool> SettInnData(Buss buss)
 
         {

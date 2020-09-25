@@ -19,17 +19,16 @@ namespace Web2020.Models
         [DataType(DataType.Date)]
         public DateTime tidspunkt { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
-        [StringLength(20, ErrorMessage = "{0} lengden må være mellom {2} og {1}.", MinimumLength = 2)]
+        [StringLength(20)]
         public string fornavn { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
-        [StringLength(20, ErrorMessage = "{0} lengden må være mellom {2} og {1}.", MinimumLength = 2)]
+        [StringLength(20)]
         public string etternavn { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9]*$")]
-        [StringLength(50, ErrorMessage = "{0} lengden må være mellom {2} og {1}.", MinimumLength = 2)]
+        [StringLength(20)]
         public string adresse { get; set; }
-        [RegularExpression(@"^\w+@\w+\.\w{2,3}$")] 
-        [StringLength(20, ErrorMessage = "{0} lengden må være mellom {2} og {1}.", MinimumLength = 2)]
-        public string epost { get; set; }
+        /*[RegularExpression(@"^[2-9]\d{7}*$")]
+        [StringLength(20)]*/
         public string telefonnr { get; set; }
     }
 }

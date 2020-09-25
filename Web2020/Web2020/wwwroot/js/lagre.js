@@ -26,7 +26,6 @@ function lagreBestilling() {
     const url = "buss/SettInnData";
     $.post(url, buss, function () {
         window.location.href = "bekreftelse.html";
-        
     });
 }
 
