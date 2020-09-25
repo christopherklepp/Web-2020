@@ -25,6 +25,7 @@ namespace Web2020.Models
         public int Rid { get; set; }
         public string reiserFra { get; set; }
         public string reiserTil { get; set; }
+        public double pris { get; set; }
     }
 
     public class Bestilling
@@ -34,6 +35,14 @@ namespace Web2020.Models
         public DateTime tidspunkt { get; set; }
         [ForeignKey("ReiseRid")]
         public virtual Reise reiser { get; set; }
+    }
+
+    public class Post
+    {
+        [Key]
+        public int PId { get; set; }
+        public string postNr { get; set; }
+        public string postSted { get; set; }
     }
    
     public class BussContext : DbContext
@@ -46,6 +55,7 @@ namespace Web2020.Models
         public DbSet<Kunde> Kunder { get; set; }
         public DbSet<Reise> Reiser { get; set; }
         public DbSet<Bestilling> Bestillinger { get; set; }
+        public DbSet<Post> Poststeder { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
