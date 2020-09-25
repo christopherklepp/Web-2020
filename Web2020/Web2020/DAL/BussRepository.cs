@@ -31,8 +31,9 @@ namespace Web2020.DAL
                     {
                         Rid = s.Rid,
                         reiserFra = s.reiserFra,
-                        reiserTil = s.reiserTil
-                    });
+                        reiserTil = s.reiserTil,
+                        pris = s.pris
+                    }); ;
                 }
 
                 return returnList;

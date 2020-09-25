@@ -25,6 +25,7 @@ namespace Web2020.Models
         public int Rid { get; set; }
         public string reiserFra { get; set; }
         public string reiserTil { get; set; }
+        public double pris { get; set; }
     }
 
     public class Bestilling

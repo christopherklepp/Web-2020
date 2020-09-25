@@ -30,5 +30,6 @@ namespace Web2020.Models
         /*[RegularExpression(@"^[2-9]\d{7}*$")]
         [StringLength(20)]*/
         public string telefonnr { get; set; }
+        public double pris { get; set; }
     }
 }
