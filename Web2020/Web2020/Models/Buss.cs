@@ -31,5 +31,6 @@ namespace Web2020.Models
         [StringLength(20)]*/
         public string telefonnr { get; set; }
         public double pris { get; set; }
+
     }
 }
