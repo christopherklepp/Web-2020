@@ -73,24 +73,35 @@ namespace Web2020.DAL
             try
             {
                 Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
-                var kunde = new Kunde
-                {
-                    fornavn = buss.fornavn,
-                    etternavn = buss.etternavn,
-                    adresse = buss.adresse,
-                    telefonnr = buss.telefonnr
-                };
+                Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.fornavn == buss.fornavn & k.etternavn == buss.etternavn);
                 var bestilling = new Bestilling
                 {
                     tidspunkt = buss.tidspunkt,
                     reiser = funnetReise
                 };
+                if (funnetKunde == null)
+                {
+                    var kunde = new Kunde
+                    {
+                        fornavn = buss.fornavn,
+                        etternavn = buss.etternavn,
+                        adresse = buss.adresse,
+                        telefonnr = buss.telefonnr
+                    };
 
-                kunde.Bestilling = new List<Bestilling>();
-                kunde.Bestilling.Add(bestilling);
-                _db.Kunder.Add(kunde);
-                await _db.SaveChangesAsync();
-                return true;
+
+                    kunde.Bestilling = new List<Bestilling>();
+                    kunde.Bestilling.Add(bestilling);
+                    _db.Kunder.Add(kunde);
+                    await _db.SaveChangesAsync();
+                    return true;
+                }
+                else
+                {
+                    funnetKunde.Bestilling.Add(bestilling);
+                    await _db.SaveChangesAsync();
+                    return true;
+                }
             }
             catch
             {
