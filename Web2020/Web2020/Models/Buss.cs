@@ -15,7 +15,7 @@ namespace Web2020.Models
         [Required]
         public string reiserTil { get; set; }
         [Required]
-        [Display(Name = "Release Date")]
+        [Display(Name = "Tidspunkt")]
         [DataType(DataType.Date)]
         public DateTime tidspunkt { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
