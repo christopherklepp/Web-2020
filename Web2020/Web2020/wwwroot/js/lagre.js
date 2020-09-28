@@ -1,10 +1,10 @@
 ﻿function requiredInfo() {
-    /*  const tidspunktOK = validTidspunkt($("#tidspunkt").val()); */
+    const tidspunktOK = validTidspunkt($("#tidspunkt").val());
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
     const adresseOK = validerAdresse($("#adresse").val());
     const telefonnrOK = validerTelefonNr($("#telefonnr").val());
-    if (/*tidspunktOK && */ fornavnOK && etternavnOK && adresseOK && telefonnrOK) {
+    if (tidspunktOK && fornavnOK && etternavnOK && adresseOK && telefonnrOK) {
 
         lagreBestilling();
     }

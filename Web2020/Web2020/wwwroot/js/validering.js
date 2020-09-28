@@ -52,22 +52,16 @@ function validerTelefonNr(telefonnr) {
     }
 }
 
-function validerTidspunkt(tidspunkt) {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth() + 1; //January is 0!
-    var yyyy = today.getFullYear();
-    if (dd < 10) {
-        dd = '0' + dd
+function validerDato() {
+    var inputDate = new Date(document.getElementById("tidspunkt").value);
+    var date = new Date();
+    if (inputDate < date) {
+        $("#feilDato").html("Tidspunktet kan ikke være tilbake i tid")
+        return false;
+    } else {
+        $("feilDato").html("");
+        return true;
     }
-    if (mm < 10) {
-        mm = '0' + mm
-    }
-
-    today = yyyy + '-' + mm + '-' + dd;
-    document.getElementById("tidspunkt").setAttribute("min", today);
-
-
 }
 
 
