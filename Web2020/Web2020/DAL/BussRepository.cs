@@ -72,7 +72,7 @@ namespace Web2020.DAL
             try
             {
                 Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
-                Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.fornavn == buss.fornavn & k.etternavn == buss.etternavn);
+                Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.epost == buss.epost);
                 var bestilling = new Bestilling
                 {
                     tidspunkt = buss.tidspunkt,

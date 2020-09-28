@@ -59,7 +59,7 @@ function validerDato() {
         $("#feilDato").html("Tidspunktet kan ikke være tilbake i tid")
         return false;
     } else {
-        $("feilDato").html("");
+        $("#feilDato").html("");
         return true;
     }
 }
