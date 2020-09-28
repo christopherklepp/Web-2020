@@ -1,5 +1,5 @@
 ﻿function requiredInfo() {
-    const tidspunktOK = validTidspunkt($("#tidspunkt").val());
+    const tidspunktOK = validerDato($("#tidspunkt").val());
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
     const adresseOK = validerAdresse($("#adresse").val());
