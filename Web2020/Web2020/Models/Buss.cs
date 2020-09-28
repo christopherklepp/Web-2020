@@ -26,10 +26,9 @@ namespace Web2020.Models
         public string etternavn { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9]*$")]
         [StringLength(20)]
-        public string adresse { get; set; }
         /*[RegularExpression(@"^[2-9]\d{7}*$")]
         [StringLength(20)]*/
-        public string telefonnr { get; set; }
+        public string epost { get; set; }
         public double pris { get; set; }
 
     }

@@ -18,8 +18,7 @@ function lagreBestilling() {
         tidspunkt: $("#tidspunkt").val(),
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
-        adresse: $("#adresse").val(),
-        telefonnr: $("#telefonnr").val()
+        epost: $("#epost").val()
     };
 
 

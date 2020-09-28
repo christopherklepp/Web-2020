@@ -53,8 +53,7 @@ namespace Web2020.DAL
             {
                 fornavn = sisteBestilling.fornavn,
                 etternavn = sisteBestilling.etternavn,
-                adresse = sisteBestilling.adresse,
-                telefonnr = sisteBestilling.telefonnr
+                epost = sisteBestilling.epost
             };
 
             foreach (var bestilling in sisteBestilling.Bestilling)
@@ -85,8 +84,7 @@ namespace Web2020.DAL
                     {
                         fornavn = buss.fornavn,
                         etternavn = buss.etternavn,
-                        adresse = buss.adresse,
-                        telefonnr = buss.telefonnr
+                        epost = buss.epost
                     };
 
 

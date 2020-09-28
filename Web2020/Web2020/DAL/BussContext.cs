@@ -15,8 +15,7 @@ namespace Web2020.Models
         public int Kid { get; set; }
         public string fornavn { get; set; }
         public string etternavn { get; set; }
-        public string adresse { get; set; }
-        public string telefonnr { get; set; }
+        public string epost { get; set; }
         public virtual List<Bestilling> Bestilling { get; set; }
     }
      public class Reise
@@ -31,7 +30,7 @@ namespace Web2020.Models
     public class Bestilling
     {
         [Key]
-        public int BId { get; set; }
+        public int Bid { get; set; }
         public DateTime tidspunkt { get; set; }
         [ForeignKey("ReiseRid")]
         public virtual Reise reiser { get; set; }
