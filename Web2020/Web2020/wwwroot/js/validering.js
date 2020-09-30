@@ -52,6 +52,19 @@ function validerTelefonNr(telefonnr) {
     }
 }
 
+function validerEpost(epost) {
+    var regexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var ok = regexp.test(epost);
+    if (!ok) {
+        $("#feilEpost").html("epost må være riktig format: ola@normann.no")
+        return false;
+    }
+    else {
+        $("feilEpost").html("");
+        return true;
+    }
+}
+
 function validerDato() {
     var inputDate = new Date(document.getElementById("tidspunkt").value);
     var date = new Date();
@@ -59,7 +72,7 @@ function validerDato() {
         $("#feilDato").html("Tidspunktet kan ikke være tilbake i tid")
         return false;
     } else {
-        $("feilDato").html("");
+        $("#feilDato").html("");
         return true;
     }
 }

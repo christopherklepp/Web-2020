@@ -3,8 +3,8 @@
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
     const adresseOK = validerAdresse($("#adresse").val());
-    const telefonnrOK = validerTelefonNr($("#telefonnr").val());
-    if (tidspunktOK && fornavnOK && etternavnOK && adresseOK && telefonnrOK) {
+    const epostOK = validerEpost($("#epost").val());
+    if (tidspunktOK && fornavnOK && etternavnOK && adresseOK && epostOK) {
 
         lagreBestilling();
     }
