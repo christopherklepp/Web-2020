@@ -2,9 +2,8 @@
     const tidspunktOK = validerDato($("#tidspunkt").val());
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
-    const adresseOK = validerAdresse($("#adresse").val());
     const epostOK = validerEpost($("#epost").val());
-    if (tidspunktOK && fornavnOK && etternavnOK && adresseOK /*&& epostOK*/) {
+    if (tidspunktOK && fornavnOK && etternavnOK && epostOK) {
 
         lagreBestilling();
     }
@@ -21,12 +20,18 @@ function lagreBestilling() {
         epost: $("#epost").val()
     };
 
-
     const url = "buss/SettInnData";
-    $.post(url, buss, function () {
-        window.location.href = "bekreftelse.html";
+   
+    $.post(url, buss, function (OK) {
+        if (OK == false) {
+
+            $("#feil").html("<p>Feil</p>");
+        } else {
+            window.location.href = "bekreftelse.html";
+        }
     });
 }
+
 
 $(function () {
     $.get("buss/HentReiser", function (reiser) {

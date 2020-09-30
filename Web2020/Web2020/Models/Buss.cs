@@ -24,6 +24,7 @@ namespace Web2020.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         [StringLength(20)]
         public string etternavn { get; set; }
+        [Required]
         [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")]
         public string epost { get; set; }
         public double pris { get; set; }
