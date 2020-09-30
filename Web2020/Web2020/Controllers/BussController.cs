@@ -22,7 +22,12 @@ namespace Web2020.Controllers
 
         public async Task<bool> SettInnData(Buss buss)
          {
-             return await _db.SettInnData(buss);
+
+            if (ModelState.IsValid)
+            {
+                return await _db.SettInnData(buss);
+            }
+            return false;
          }
 
         public async Task<Buss> SisteBestilling()
@@ -34,5 +39,6 @@ namespace Web2020.Controllers
         {
             return await _db.HentReiser();
         }
+        
     }
 }

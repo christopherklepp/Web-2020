@@ -65,12 +65,15 @@ namespace Web2020.DAL
             return buss;
         }
 
-            [HttpPost]
+        
+
+        [HttpPost]
         public async Task<bool> SettInnData(Buss buss)
 
         {
             try
             {
+                
                 Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
                 Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.epost == buss.epost);
                 var bestilling = new Bestilling

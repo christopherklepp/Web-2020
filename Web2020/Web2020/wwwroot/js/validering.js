@@ -52,6 +52,7 @@ function validerTelefonNr(telefonnr) {
     }
 }
 
+/*
 function validerEpost(epost) {
     var regexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     var ok = regexp.test(epost);
@@ -63,7 +64,7 @@ function validerEpost(epost) {
         $("feilEpost").html("");
         return true;
     }
-}
+}*/
 
 function validerDato() {
     var inputDate = new Date(document.getElementById("tidspunkt").value);
