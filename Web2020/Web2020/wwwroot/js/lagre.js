@@ -27,7 +27,7 @@ function lagreBestilling() {
     $.post(url, buss, function (OK) {
         if (OK == false) {
 
-            $("#feil").html("Feil i registrering av bestilling. Prøv igjen. Husk på fyll ut og velg alle feltene");
+            $("#feil").html("Feil i registrering av bestilling. Prøv igjen. Husk å fylle ut og velg alle feltene");
         } else {
             window.location.href = "bekreftelse.html";
         }
