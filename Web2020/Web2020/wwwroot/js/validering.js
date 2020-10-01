@@ -49,7 +49,7 @@ function validerEpost(epost) {
         return false;
     }
     else {
-        $("feilEpost").html("");
+        $("#feilEpost").html("");
         return true;
     }
 }
