@@ -1,5 +1,4 @@
-﻿//Skriver ut kvitering
-
+﻿//Skriver ut kvittering
 $(function () {
     $.get("buss/SisteBestilling", function (buss) {
         let ut = "<div>"

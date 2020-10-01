@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Web2020.Models
 {
 
-    /* Klasser for kunde, reise og bestilling */
+    //Klasser for kunde, reise og bestilling
     public class Kunde
     {
         [Key]
@@ -38,7 +38,7 @@ namespace Web2020.Models
         public virtual Reise reiser { get; set; }
     }
 
-    /* Oppretter databasen */
+    //Oppretter databasen
     public class BussContext : DbContext
     {
         public BussContext(DbContextOptions<BussContext> options) : base(options)
