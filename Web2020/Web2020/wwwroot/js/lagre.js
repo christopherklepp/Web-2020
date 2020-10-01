@@ -3,6 +3,8 @@
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
     const epostOK = validerEpost($("#epost").val());
+    let tid = $("#tidspunkt").val();
+    console.log(tid);
     if (tidspunktOK && fornavnOK && etternavnOK && epostOK) {
 
         lagreBestilling();
@@ -25,7 +27,7 @@ function lagreBestilling() {
     $.post(url, buss, function (OK) {
         if (OK == false) {
 
-            $("#feil").html("<p>Feil</p>");
+            $("#feil").html("Feil i registrering av bestilling. Prøv igjen. Husk på fyll ut og velg alle feltene");
         } else {
             window.location.href = "bekreftelse.html";
         }

@@ -26,26 +26,11 @@ function validerEtternavn(etternavn) {
     }
 }
 
-
-function validerTelefonNr(telefonnr) {
-    var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
-    var ok = regexp.test(telefonnr);
-    if (!ok) {
-        $("#feilTelefonnr").html("Telefonnummer skal bestå av tall mellom 7 og 14 tegn")
-        return false;
-    }
-    else {
-        $("feilTelefonnr").html("");
-        return true;
-    }
-}
-
-
 function validerEpost(epost) {
     var regexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     var ok = regexp.test(epost);
     if (!ok) {
-        $("#feilEpost").html("epost må være riktig format: ola@normann.no")
+        $("#feilEpost").html("Epost må være riktig format: ola@normann.no")
         return false;
     }
     else {
