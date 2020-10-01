@@ -1,4 +1,4 @@
-﻿/* Mangler valideringsfunksjon for tidspunkt */
+﻿/* Funksjoner for validering og feilmelding til bruker på klient */
 
 function validerFornavn(fornavn) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
