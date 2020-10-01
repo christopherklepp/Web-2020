@@ -26,18 +26,6 @@ function validerEtternavn(etternavn) {
     }
 }
 
-function validerAdresse(adresse) {
-    var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
-    var ok = regexp.test(adresse);
-    if (!ok) {
-        $("#feilAdresse").html("Adressen kan bestå av tall og bokstaver, fra 2 til 50 tegn");
-        return false;
-    }
-    else {
-        $("#feilAdresse").html("");
-        return true;
-    }
-}
 
 function validerTelefonNr(telefonnr) {
     var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
