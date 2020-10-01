@@ -44,29 +44,9 @@ namespace Web2020.DAL
                 return null;
             }
         }
-        public async Task<Buss> SisteBestilling()
-        {
 
-            List<Kunde> alleKunder = await _db.Kunder.ToListAsync();
-            Kunde sisteBestilling = alleKunder.Last();
-            Buss buss = new Buss
-            {
-                fornavn = sisteBestilling.fornavn,
-                etternavn = sisteBestilling.etternavn,
-                epost = sisteBestilling.epost
-            };
 
-            foreach (var bestilling in sisteBestilling.Bestilling)
-            {
-                buss.tidspunkt = bestilling.tidspunkt;
-                buss.reiserFra = bestilling.reiser.reiserFra;
-                buss.reiserTil = bestilling.reiser.reiserTil;
-            }
-            return buss;
-        }
-
-        
-
+        //Lagrer bestilling til databasen, sjekker at bruker ikke alt er lagret i databasen
         [HttpPost]
         public async Task<bool> SettInnData(Buss buss)
 
@@ -108,6 +88,28 @@ namespace Web2020.DAL
             {
                 return false;
             }
+        }
+
+        //Henter informasjon om bestilling fra databasen
+        public async Task<Buss> SisteBestilling()
+        {
+
+            List<Kunde> alleKunder = await _db.Kunder.ToListAsync();
+            Kunde sisteBestilling = alleKunder.Last();
+            Buss buss = new Buss
+            {
+                fornavn = sisteBestilling.fornavn,
+                etternavn = sisteBestilling.etternavn,
+                epost = sisteBestilling.epost
+            };
+
+            foreach (var bestilling in sisteBestilling.Bestilling)
+            {
+                buss.tidspunkt = bestilling.tidspunkt;
+                buss.reiserFra = bestilling.reiser.reiserFra;
+                buss.reiserTil = bestilling.reiser.reiserTil;
+            }
+            return buss;
         }
 
     }
