@@ -33,7 +33,7 @@ namespace Web2020.DAL
                         reiserFra = s.reiserFra,
                         reiserTil = s.reiserTil,
                         pris = s.pris
-                    }); ;
+                    });
                 }
 
                 return returnList;
@@ -110,6 +110,19 @@ namespace Web2020.DAL
                 buss.reiserTil = bestilling.reiser.reiserTil;
             }
             return buss;
+        }
+
+        public async Task<Reise> HentEnReise(int id)
+        {
+            try
+            {
+                Reise hentetReise = await _db.Reiser.FindAsync(id);
+                return hentetReise;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public async Task<List<Reise>> HentAlleReiser()
