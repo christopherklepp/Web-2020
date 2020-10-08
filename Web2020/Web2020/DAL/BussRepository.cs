@@ -112,5 +112,33 @@ namespace Web2020.DAL
             return buss;
         }
 
+        public async Task<List<Reise>> HentAlleReiser()
+        {
+            List<Reise> iDatabasenReiser = await _db.Reiser.ToListAsync();
+            List<Reise> alleReiser = new List<Reise>();
+            foreach (Reise enReise in iDatabasenReiser)
+            {
+                alleReiser.Add(enReise);
+            }
+            return alleReiser;
+        }
+
+        public async Task<bool> Endre(Reise endretReise)
+        {
+            try
+            {
+                var nyReise = await _db.Reiser.FindAsync(endretReise.Rid);
+
+                nyReise.reiserFra = endretReise.reiserFra;
+                nyReise.reiserTil = endretReise.reiserTil;
+                nyReise.pris = endretReise.pris;
+                await _db.SaveChangesAsync();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

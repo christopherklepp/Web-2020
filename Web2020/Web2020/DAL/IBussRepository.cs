@@ -11,5 +11,6 @@ namespace Web2020.DAL
        Task<Buss> SisteBestilling();
        Task<bool> SettInnData(Buss buss);
        Task<List<Reise>> HentReiser();
+        Task<List<Reise>> HentAlleReiser();
     }
 }
