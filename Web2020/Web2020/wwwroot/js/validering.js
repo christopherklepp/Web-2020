@@ -53,3 +53,28 @@ function validerDato() {
 
 
 
+function validerBrukernavn(brukernavn) {
+    const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{3,15}$/;
+    const ok = regexp.test(brukernavn);
+    if (!ok) {
+        $("#feilBrukernavn").html("Brukernavnet må bestå av kun bokstaver, og være på 3 til 15 tegn");
+        return false;
+    }
+    else {
+        $("#feilBrukernavn").html("");
+        return true;
+    }
+}
+
+function validerPassord(passord) {
+    const regexp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    const ok = regexp.test(passord);
+    if (!ok) {
+        $("#feilPassord").html("Passordet må bestå av minimum 6 tegnminst en bokstav og et tall");
+        return false;
+    }
+    else {
+        $("#feilPassord").html("");
+        return true;
+    }
+}
