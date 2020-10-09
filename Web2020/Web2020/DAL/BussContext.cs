@@ -20,7 +20,7 @@ namespace Web2020.Models
         public string epost { get; set; }
         public virtual List<Bestilling> Bestilling { get; set; }
     }
-     public class Reise
+    public class Reise
     {
         [Key]
         public int Rid { get; set; }
@@ -38,6 +38,15 @@ namespace Web2020.Models
         public virtual Reise reiser { get; set; }
     }
 
+    public class Adminer
+    {
+        public int Id { get; set; }
+        public string Brukernavn { get; set; }
+        public byte[] Passord { get; set; }
+        public byte[] Salt { get; set; }
+    }
+
+
     //Oppretter databasen
     public class BussContext : DbContext
     {
@@ -49,6 +58,8 @@ namespace Web2020.Models
         public DbSet<Kunde> Kunder { get; set; }
         public DbSet<Reise> Reiser { get; set; }
         public DbSet<Bestilling> Bestillinger { get; set; }
+
+        public DbSet<Adminer> Adminer { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -5,15 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web2020.Models;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.Extensions.Logging;
 
 namespace Web2020.DAL
 {
     public class BussRepository : IBussRepository
     {
-        private readonly BussContext _db;
-        public BussRepository (BussContext db)
+        private BussContext _db;
+        private ILogger<BussRepository> _log;
+        public BussRepository(BussContext db, ILogger<BussRepository> log)
         {
             _db = db;
+            _log = log;
         }
 
 
@@ -53,7 +58,7 @@ namespace Web2020.DAL
         {
             try
             {
-                
+
                 Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
                 Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.epost == buss.epost);
                 var bestilling = new Bestilling
@@ -153,5 +158,45 @@ namespace Web2020.DAL
             }
             return true;
         }
+
+        public static byte[] LagHash(string passord, byte[] salt)
+        {
+            return KeyDerivation.Pbkdf2(
+                                password: passord,
+                                salt: salt,
+                                prf: KeyDerivationPrf.HMACSHA512,
+                                iterationCount: 1000,
+                                numBytesRequested: 32);
+        }
+
+        public static byte[] LagSalt()
+        {
+            var csp = new RNGCryptoServiceProvider();
+            var salt = new byte[24];
+            csp.GetBytes(salt);
+            return salt;
+        }
+
+        public async Task<bool> Login(Admin admin)
+        {
+            try
+            {
+                Adminer finnAdmin = await _db.Adminer.FirstOrDefaultAsync(b => b.Brukernavn == admin.Brukernavn);
+                // sjekk passordet
+                byte[] hash = LagHash(admin.Passord, finnAdmin.Salt);
+                bool ok = hash.SequenceEqual(finnAdmin.Passord);
+                if (ok)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+                _log.LogInformation(e.Message);
+                return false;
+            }
+        }
+
     }
 }
