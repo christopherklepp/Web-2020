@@ -32,7 +32,10 @@ namespace Web2020
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+               
             }
+
+            DBInit.Initialize(app);
 
             app.UseRouting();
 

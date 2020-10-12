@@ -8,7 +8,7 @@
             brukernavn: $("#brukernavn").val(),
             passord: $("#passord").val()
         }
-        $.post("Admin/login", bruker, function (OK) {
+        $.post("Buss/Login", bruker, function (OK) {
             if (OK) {
                 window.location.href = 'admin.html';
             }
