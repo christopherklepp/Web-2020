@@ -46,8 +46,12 @@ namespace Web2020.Controllers
         {
             return await _db.HentAlleReiser();
         }
+        public async Task<Reise> HentEnReise(int id)
+        {
+            return await _db.HentEnReise(id);
+        }
 
-        public async Task<ActionResult> Login(Admin admin)
+        /*public async Task<ActionResult> Login(Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +65,7 @@ namespace Web2020.Controllers
             }
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering på server");
-        }
+        }*/
 
 
     }

@@ -10,9 +10,9 @@
         for (let enReise of reiser) {
             ut += "<tr>" +
                 "<td>" + enReise.reiserFra + "</td>" + "<td>" + enReise.reiserTil + "</td>" + "<td>" + enReise.pris + " kr</td>" +
-                "<td> <a class='btn btn-primary' href='endre.html?id=" + enReise.Rid + "'>Endre</a> </td>"
+                "<td> <a class='btn btn-primary' href='endre.html?id=" + enReise.rid + "'>Endre</a> </td>"
                 "</tr>";
-            console.log(enReise.Rid)
+            console.log(enReise.rid);
         }
         ut += "</table>"
         $("#alleReiser").html(ut);
