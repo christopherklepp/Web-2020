@@ -13,10 +13,12 @@ namespace Web2020.DAL
 {
     public class BussRepository : IBussRepository
     {
-        private BussContext _db;
-        public BussRepository (BussContext db)
+        private readonly BussContext _db;
+        private ILogger<BussRepository> _log;
+        public BussRepository (BussContext db, ILogger<BussRepository> log)
         {
             _db = db;
+            _log = log;
         }
 
 
