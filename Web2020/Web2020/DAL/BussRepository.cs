@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web2020.Models;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.Extensions.Logging;
 
 namespace Web2020.DAL
 {
@@ -168,6 +170,44 @@ namespace Web2020.DAL
             
             catch
             {  
+                return false;
+            }
+        }
+
+        public static byte[] LagHash(string passord, byte[] salt)
+        {
+            return KeyDerivation.Pbkdf2(
+                                password: passord,
+                                salt: salt,
+                                prf: KeyDerivationPrf.HMACSHA512,
+                                iterationCount: 1000,
+                                numBytesRequested: 32);
+        }
+
+        public static byte[] LagSalt()
+        {
+            var csp = new RNGCryptoServiceProvider();
+            var salt = new byte[24];
+            csp.GetBytes(salt);
+            return salt;
+        }
+
+        public async Task<bool> Login(Admin admin)
+        {
+            try
+            {
+                Adminer finnAdmin = await _db.Adminer.FirstOrDefaultAsync(b => b.Brukernavn == admin.Brukernavn);
+              
+                byte[] hash = LagHash(admin.Passord, finnAdmin.Salt);
+                bool ok = hash.SequenceEqual(finnAdmin.Passord);
+                if (ok)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception e)
+            { 
                 return false;
             }
         }
