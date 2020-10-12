@@ -19,6 +19,24 @@ namespace Web2020.Models
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
 
+                var reise1 = new Reise();
+                reise1.reiserFra = "Oslo";
+                reise1.reiserTil = "Bergen";
+                reise1.pris = 299;
+                db.Reiser.Add(reise1);
+              
+
+                var reise2 = new Reise();
+                reise2.reiserFra = "Bergen";
+                reise2.reiserTil = "Oslo";
+                reise2.pris = 499;
+                db.Reiser.Add(reise2);
+
+                var reise3 = new Reise();
+                reise3.reiserFra = "Oslo";
+                reise3.reiserTil = "Trondheim";
+                reise3.pris = 599;
+                db.Reiser.Add(reise3);
 
                 var admin = new Adminer();
                 admin.Brukernavn = "Admin";

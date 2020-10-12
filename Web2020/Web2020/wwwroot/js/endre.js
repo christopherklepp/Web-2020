@@ -8,4 +8,3 @@
         $("#pris").val(reise.pris);
     });
 });
-
