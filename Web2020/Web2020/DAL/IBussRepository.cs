@@ -15,5 +15,6 @@ namespace Web2020.DAL
        Task<bool> Endre(Reise endretReise);
        Task<Reise> HentEnReise(int id);
        Task<bool> SlettSted(int id);
+       Task<bool> Login(Admin admin);
     }
 }

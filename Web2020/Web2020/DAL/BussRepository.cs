@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Web2020.DAL
 {
     public class BussRepository : IBussRepository
     {
-        private readonly BussContext _db;
+        private BussContext _db;
         public BussRepository (BussContext db)
         {
             _db = db;
@@ -207,7 +208,8 @@ namespace Web2020.DAL
                 return false;
             }
             catch (Exception e)
-            { 
+            {
+                _log.LogInformation(e.Message);
                 return false;
             }
         }
