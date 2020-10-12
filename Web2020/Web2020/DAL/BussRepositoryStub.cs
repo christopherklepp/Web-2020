@@ -5,7 +5,7 @@ using Web2020.Models;
 
 namespace Web2020.DAL
 {
-    public class BussRepositoryStub : IBussRepository
+    /*public class BussRepositoryStub : IBussRepository
     {
         public Task<bool> Endre(Reise endretReise)
         {
@@ -66,7 +66,7 @@ namespace Web2020.DAL
             {
                 return false;
             }
-        }
+        }*/
 
 
         
