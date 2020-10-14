@@ -23,6 +23,11 @@ namespace Web2020.Controllers
             _db = db;
             _log = log;
         }
+        public async Task<bool> Endre(Reise endretReise)
+        {
+            return await _db.Endre(endretReise);
+        }
+
 
         /*
         public async Task<bool> SettInnData(Buss buss)
@@ -35,15 +40,15 @@ namespace Web2020.Controllers
             return false;
         }*/
 
-        /*
-        public async Task<List<Reise>> HentReiser()
+        
+        /*public async Task<List<Reise>> HentReiser()
         {
             _log.LogInformation("HentReiser funket");
             return await _db.HentReiser();
         }*/
 
-        /*
-        public async Task<Reise> HentEnReise(int id)
+        
+        /*public async Task<Reise> HentEnReise(int id)
         {
             return await _db.HentEnReise(id);
         }*/
@@ -98,7 +103,7 @@ namespace Web2020.Controllers
 
             if (enReise == null!)
             {
-                _log.LogInformation("Fant ikke reisen");
+                //_log.LogInformation("Fant ikke reisen");
                 return BadRequest("Fant ikke reisen");
 
             }
