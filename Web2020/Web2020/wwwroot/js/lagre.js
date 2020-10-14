@@ -23,6 +23,15 @@ function lagreBestilling() {
     };
 
     const url = "buss/SettInnData";
+
+    /*
+    $.post(url, buss, function () {
+        window.location.href = "bekreftelse.html";
+    })
+        .fail(function () {
+            $("#feil").html("Feil i registrering av bestilling. Prøv igjen. Husk å fylle ut og velg alle feltene");
+        });*/
+        
    
     $.post(url, buss, function (OK) {
         if (OK == false) {
