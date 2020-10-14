@@ -23,6 +23,7 @@ namespace Web2020.Models
                 reise1.reiserFra = "Oslo";
                 reise1.reiserTil = "Bergen";
                 reise1.pris = 299;
+                reise1.avganger = "Mandag: kl 11:00";
                 db.Reiser.Add(reise1);
               
 
@@ -30,12 +31,14 @@ namespace Web2020.Models
                 reise2.reiserFra = "Bergen";
                 reise2.reiserTil = "Oslo";
                 reise2.pris = 499;
+                reise2.avganger = "Tirsdag: kl 14:00 ";
                 db.Reiser.Add(reise2);
 
                 var reise3 = new Reise();
                 reise3.reiserFra = "Oslo";
                 reise3.reiserTil = "Trondheim";
                 reise3.pris = 599;
+                reise3.avganger = "Torsdag: kl 13:00";
                 db.Reiser.Add(reise3);
 
                 var admin = new Adminer();

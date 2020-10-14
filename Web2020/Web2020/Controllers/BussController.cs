@@ -107,7 +107,7 @@ namespace Web2020.Controllers
                 return BadRequest("Fant ikke reisen");
 
             }
-            return Ok("Reise funnet");
+            return Ok(enReise);
         }
 
 
@@ -128,11 +128,6 @@ namespace Web2020.Controllers
             return BadRequest("Feil i inputvalidering på server");
         }
 
-
-        public async Task<List<Reise>> HentAlleReiser()
-        {
-            return await _db.HentAlleReiser();
-        }
 
 
     }

@@ -38,8 +38,9 @@ namespace Web2020.DAL
                         Rid = s.Rid,
                         reiserFra = s.reiserFra,
                         reiserTil = s.reiserTil,
-                        pris = s.pris
-                    });
+                        pris = s.pris,
+                        avganger = s.avganger
+                    }) ;
                 }
 
                 return returnList;
@@ -64,7 +65,6 @@ namespace Web2020.DAL
                 Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.epost == buss.epost);
                 var bestilling = new Bestilling
                 {
-                    tidspunkt = buss.tidspunkt,
                     reiser = funnetReise
                 };
                 if (funnetKunde == null)
@@ -111,7 +111,7 @@ namespace Web2020.DAL
 
             foreach (var bestilling in sisteBestilling.Bestilling)
             {
-                buss.tidspunkt = bestilling.tidspunkt;
+                buss.avganger = bestilling.reiser.avganger;
                 buss.reiserFra = bestilling.reiser.reiserFra;
                 buss.reiserTil = bestilling.reiser.reiserTil;
             }
@@ -129,17 +129,6 @@ namespace Web2020.DAL
             {
                 return null;
             }
-        }
-
-        public async Task<List<Reise>> HentAlleReiser()
-        {
-            List<Reise> iDatabasenReiser = await _db.Reiser.ToListAsync();
-            List<Reise> alleReiser = new List<Reise>();
-            foreach (Reise enReise in iDatabasenReiser)
-            {
-                alleReiser.Add(enReise);
-            }
-            return alleReiser;
         }
 
         public async Task<bool> Endre(Reise endretReise)

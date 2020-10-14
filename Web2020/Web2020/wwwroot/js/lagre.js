@@ -1,11 +1,10 @@
 ﻿function requiredInfo() {
-    const tidspunktOK = validerDato($("#tidspunkt").val());
+    //const tidspunktOK = validerDato($("#tidspunkt").val());
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
     const epostOK = validerEpost($("#epost").val());
-    let tid = $("#tidspunkt").val();
-    console.log(tid);
-    if (tidspunktOK && fornavnOK && etternavnOK && epostOK) {
+    //let tid = $("#tidspunkt").val();
+    if (/*tidspunktOK && */fornavnOK && etternavnOK && epostOK) {
 
         lagreBestilling();
     }
@@ -16,7 +15,8 @@ function lagreBestilling() {
     const buss = {
         reiserFra: $("#reiseFra").val(),
         reiserTil: $("#reiseTil").val(),
-        tidspunkt: $("#tidspunkt").val(),
+        //tidspunkt: $("#tidspunkt").val(),
+        avganger: $("#avganger").val(),
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
         epost: $("#epost").val()
@@ -89,5 +89,20 @@ function pris() {
                 $("#pris").html(pris);
             }
         }
+        avganger(reiser);
     });
 }
+
+function avganger(reiser) {
+        let reiserFra = $("#reiseFra").val()
+        let reiserTil = $("#reiseTil").val()
+        let avgang;
+        let ut ="";
+        for (let enReise of reiser) {
+            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
+                avgang = enReise.avganger;
+                ut += "<option>" + avgang + "</option>";
+            }
+         }
+    $("#avganger").html(ut);
+};

@@ -15,9 +15,9 @@ namespace Web2020.Models
         [Required]
         public string reiserTil { get; set; }
         [Required]
-        [Display(Name = "Tidspunkt")]
-        [DataType(DataType.Date)]
-        public DateTime tidspunkt { get; set; }
+        /*[Display(Name = "Tidspunkt")]
+        [DataType(DataType.Date)]*/
+        public string avganger { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         [StringLength(20)]
         public string fornavn { get; set; }

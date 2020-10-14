@@ -11,7 +11,6 @@ namespace Web2020.DAL
        Task<Buss> SisteBestilling();
        Task<bool> SettInnData(Buss buss);
        Task<List<Reise>> HentReiser();
-       Task<List<Reise>> HentAlleReiser();
        Task<bool> Endre(Reise endretReise);
        Task<Reise> HentEnReise(int id);
        Task<bool> SlettSted(int id);

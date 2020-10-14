@@ -27,13 +27,13 @@ namespace Web2020.Models
         public string reiserFra { get; set; }
         public string reiserTil { get; set; }
         public double pris { get; set; }
+        public string avganger { get; set; }
     }
 
     public class Bestilling
     {
         [Key]
         public int Bid { get; set; }
-        public DateTime tidspunkt { get; set; }
         [ForeignKey("ReiseRid")]
         public virtual Reise reiser { get; set; }
     }
