@@ -128,7 +128,10 @@ namespace Web2020.Controllers
             return BadRequest("Feil i inputvalidering på server");
         }
 
-
+        public async Task<bool> LagreReise(Reise nyReise)
+        {
+            return await _db.LagreReise(nyReise);
+        }
 
     }
 }

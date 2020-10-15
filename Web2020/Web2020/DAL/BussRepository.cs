@@ -168,6 +168,19 @@ namespace Web2020.DAL
             }
         }
 
+        public async Task<bool> LagreReise(Reise nyReise)
+        {
+            try
+            {
+                _db.Reiser.Add(nyReise);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public static byte[] LagHash(string passord, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(
