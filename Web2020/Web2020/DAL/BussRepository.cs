@@ -140,6 +140,7 @@ namespace Web2020.DAL
                 nyReise.reiserFra = endretReise.reiserFra;
                 nyReise.reiserTil = endretReise.reiserTil;
                 nyReise.pris = endretReise.pris;
+                nyReise.avganger = endretReise.avganger;
                 await _db.SaveChangesAsync();
             }
             catch

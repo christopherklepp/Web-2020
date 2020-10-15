@@ -84,7 +84,7 @@ namespace Web2020.Controllers
                 return BadRequest("Fant ikke siste bestilling");
 
             }
-            return Ok("bestilling funnet");
+            return Ok(sisteBestilling);
             
         }
 

@@ -10,6 +10,7 @@
         $("#fra").val(reise.reiserFra);
         $("#til").val(reise.reiserTil);
         $("#pris").val(reise.pris);
+        $("#avganger").val(reise.avganger);
     });
 });
 
@@ -18,7 +19,8 @@ function endreReise() {
         Rid: $("#id").val(),
         reiserFra: $("#fra").val(),
         reiserTil: $("#til").val(),
-        pris: $("#pris").val()
+        pris: $("#pris").val(),
+        avganger: $("#avganger").val()
     };
     $.post("buss/Endre", Reise, function () {
         console.log("Endret");

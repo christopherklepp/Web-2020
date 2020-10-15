@@ -1,6 +1,9 @@
 ﻿//Skriver ut kvittering
 $(function () {
+    console.log("Hei");
     $.get("buss/SisteBestilling", function (buss) {
+        console.log("hei");
+        console.log(buss.fornavn);
         let ut = "<div>"
         ut += "<label>Fornavn:  </label> " + buss.fornavn + "</br>" +" <label>Etternavn:  </label> " + buss.etternavn + "</br>"
         ut += " <label>E-post:  </label> " + buss.epost + "</br>"
