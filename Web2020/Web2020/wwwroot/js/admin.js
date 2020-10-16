@@ -17,7 +17,7 @@
                 "<td>" + enReise.reiserFra + "</td>" + "<td>" + enReise.reiserTil + "</td>" + "<td>" + enReise.pris + " kr</td>" +
                 "<td>" + enReise.avganger + "</td><td> <a class='btn btn-primary' href='endre.html?id=" + enReise.rid + "'>Endre</a> </td>"
                 "</tr>"+
-                "<tbody>"    ;
+                "<tbody>";
             console.log(enReise.rid);
         }
         ut += "</table>" +
