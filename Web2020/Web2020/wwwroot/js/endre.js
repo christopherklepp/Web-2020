@@ -14,16 +14,6 @@
     });
 });
 
-function requiredInfoEndre() {
-    const tilOK = validerTil($("#til").val());
-    const fraOK = validerFra($("#fra").val());
-    const prisOK = validerPris($("#pris").val());
-    if (tilOK && fraOK && prisOK) {
-
-        endreReise();
-    }
-}
-
 function endreReise() {
     const Reise = {
         Rid: $("#id").val(),
