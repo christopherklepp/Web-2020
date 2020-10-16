@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{38548E02-D75B-4BFA-B1D2-AB5B94E78D2E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Web2020/DAL/DBInit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Web2020/wwwroot/nyreise.html">
     <Files>
       <File FileName="Web2020/wwwroot/css/index.css" Line="9" Column="22" />
-      <File FileName="Web2020/wwwroot/index.html" Line="21" Column="35" />
+      <File FileName="Web2020/wwwroot/index.html" Line="19" Column="111" />
       <File FileName="Web2020/wwwroot/js/admin.js" Line="1" Column="1" />
-      <File FileName="Web2020/wwwroot/admin.html" Line="20" Column="7" />
+      <File FileName="Web2020/wwwroot/admin.html" Line="20" Column="5" />
       <File FileName="Web2020/wwwroot/bekreftelse.html" Line="1" Column="1" />
       <File FileName="Web2020/wwwroot/endre.html" Line="1" Column="1" />
       <File FileName="Web2020/wwwroot/login.html" Line="25" Column="35" />
       <File FileName="Web2020/DAL/DBInit.cs" Line="1" Column="1" />
+      <File FileName="Web2020/wwwroot/nyreise.html" Line="18" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,15 +18,14 @@
             <Node name="Web2020" expanded="True">
               <Node name="BLL" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="DAL" expanded="True">
-                <Node name="DBInit.cs" selected="True" />
-              </Node>
+              <Node name="DAL" expanded="True" />
               <Node name="Logs" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True" />
                 <Node name="js" expanded="True" />
+                <Node name="nyreise.html" selected="True" />
               </Node>
             </Node>
           </Node>
