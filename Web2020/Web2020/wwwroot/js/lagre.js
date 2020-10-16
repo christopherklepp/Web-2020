@@ -48,6 +48,7 @@ $(function () {
     $.get("buss/HentReiser", function (reiser) {
         formaterFraReiser(reiser);
         formaterTilReiser(reiser);
+        formaterAvganger(reiser);
         pris();
     });
 });
@@ -63,8 +64,8 @@ function formaterFraReiser(reiser) {
 
 function tilReiser() {
     $.get("buss/HentReiser", function (reiser) {
-        formaterTilReiser(reiser)
-        pris();
+        formaterTilReiser(reiser);
+        formaterAvganger(reiser);
     });
 }
 
@@ -72,37 +73,45 @@ function formaterTilReiser(reiser) {
     let reiserFra = $("#reiseFra").val();
     let ut;
     for (let enReise of reiser) {
-        if (reiserFra == enReise.reiserFra)
-            ut += "<option value='" + enReise.reiserTil + "'>" + enReise.reiserTil + "</option>";
+        if (reiserFra == enReise.reiserFra) { 
+                ut += "<option value='" + enReise.reiserTil + "'>" + enReise.reiserTil + "</option>";    
+        }
     }
-
     $("#reiseTil").html(ut);
 }
+function avgang() {
+    $.get("buss/HentReiser", function (reiser) {
+        formaterAvganger(reiser);
+        pris();
+    });
+}
+
+function formaterAvganger(reiser) {
+    
+    let reiserFra = $("#reiseFra").val();
+    let reiserTil = $("#reiseTil").val();
+    let avgang;
+    let ut = "";
+    for (let enReise of reiser) {
+        if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
+            avgang = enReise.avganger;
+            ut += "<option>" + avgang + "</option>";
+        }
+    }
+    $("#avganger").html(ut);
+}
+
 function pris() {
     $.get("buss/HentReiser", function (reiser) {
-        let reiserFra = $("#reiseFra").val()
-        let reiserTil = $("#reiseTil").val()
+        let reiserFra = $("#reiseFra").val();
+        let reiserTil = $("#reiseTil").val();
+        let avganger = $("#avganger").val();
         let pris;
         for (let enReise of reiser) {
-            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
+            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil && avganger == enReise.avganger) {
                 pris = enReise.pris + " kr";
                 $("#pris").html(pris);
             }
         }
-        avganger(reiser);
     });
 }
-
-function avganger(reiser) {
-        let reiserFra = $("#reiseFra").val()
-        let reiserTil = $("#reiseTil").val()
-        let avgang;
-        let ut ="";
-        for (let enReise of reiser) {
-            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
-                avgang = enReise.avganger;
-                ut += "<option>" + avgang + "</option>";
-            }
-         }
-    $("#avganger").html(ut);
-};

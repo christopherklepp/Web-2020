@@ -26,16 +26,16 @@
             </div>
             <div class="form-group">
                 <label for="Til">Til</label>
-                <select id="reiseTil" class="form-control" onchange="pris()">
+                <select id="reiseTil" class="form-control" onchange="avgang()">
                 </select>
             </div>
             <div class="form-group">
-                <label for="Pris" >Pris</label>
-                <p id="pris" class="form-control"></p>
+                <label for="date">Avgang</label>
+                <select id="avganger" class="form-control" onchange="pris()"></select>
             </div>
             <div class="form-group">
-                <label for="date">Avgang</label>
-                <select id="avganger" class="form-control" onchange="avganger"></select>
+                <label for="Pris">Pris</label>
+                <p id="pris" class="form-control"></p>
             </div>
             <div class="form-group">
                 <label for="fornavn">Fornavn:</label>
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="etternavn">Etternavn:</label>
-                <input type="text" class="form-control" id="etternavn" onchange="validerEtternavn(this.value)"/>
+                <input type="text" class="form-control" id="etternavn" onchange="validerEtternavn(this.value)" />
                 <span id="feilEtternavn" style="color: darkred"></span>
             </div>
             <div class="form-group">

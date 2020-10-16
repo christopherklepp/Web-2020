@@ -41,6 +41,13 @@ namespace Web2020.Models
                 reise3.avganger = "Torsdag: kl 13:00";
                 db.Reiser.Add(reise3);
 
+                var reise4 = new Reise();
+                reise4.reiserFra = "Oslo";
+                reise4.reiserTil = "Bergen";
+                reise4.pris = 599;
+                reise4.avganger = "Torsdag: kl 13:00";
+                db.Reiser.Add(reise4);
+
                 var admin = new Adminer();
                 admin.Brukernavn = "Admin";
                 var passord = "Passord1";
