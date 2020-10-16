@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+    <input type="button" class="btn btn-primary btn-lg" onclick="location.href='admin.html';" value="Tilbake" />
     <div class="container">
         <h1>Opprett Ny Reise</h1>
         <form id="adminform">
@@ -33,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label for="Avganger">Valg dag</label>
-                <select id="dag"  class="form-control">
+                <select id="dag" class="form-control">
                     <option>Mandag</option>
                     <option>Tirsdag</option>
                     <option>Onsdag</option>
@@ -48,7 +49,7 @@
                 <input type="time" class="form-control" id="tid" />
             </div>
             <button class="btn btn-success" onclick="lagre()">Lagre bestilling</button>
-            </form>
+        </form>
 
     </div>
 </body>
