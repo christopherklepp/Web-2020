@@ -56,9 +56,9 @@ namespace Web2020.BLL
         }
 
 
-        public async Task<bool> SlettSted(int id)
+        public async Task<bool> SlettReise(int id)
         {
-            return await _bussRepository.SlettSted(id);
+            return await _bussRepository.SlettReise(id);
         }
 
 

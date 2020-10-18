@@ -151,7 +151,7 @@ namespace Web2020.DAL
         }
 
 
-        public async Task<bool> SlettSted(int id)
+        public async Task<bool> SlettReise(int id)
         {
             try
             {

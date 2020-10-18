@@ -132,6 +132,9 @@ namespace Web2020.Controllers
         {
             return await _db.LagreReise(nyReise);
         }
-
+        public async Task<bool> SlettReise(int id)
+        {
+            return await _db.SlettReise(id);
+        }
     }
 }

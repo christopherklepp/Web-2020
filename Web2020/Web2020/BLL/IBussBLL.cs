@@ -12,6 +12,6 @@ namespace Web2020.BLL
         Task<List<Reise>> HentReiser();
         Task<bool> Endre(Reise endretReise);
         Task<Reise> HentEnReise(int id);
-        Task<bool> SlettSted(int id);
+        Task<bool> SlettReise(int id);
     }
 }

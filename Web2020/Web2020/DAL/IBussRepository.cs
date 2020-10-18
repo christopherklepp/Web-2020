@@ -13,7 +13,7 @@ namespace Web2020.DAL
        Task<List<Reise>> HentReiser();
        Task<bool> Endre(Reise endretReise);
        Task<Reise> HentEnReise(int id);
-       Task<bool> SlettSted(int id);
+       Task<bool> SlettReise(int id);
        Task<bool> Login(Admin admin);
        Task<bool> LagreReise(Reise nyReise);
     }

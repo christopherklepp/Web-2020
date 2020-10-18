@@ -15,7 +15,8 @@
             ut += "<tbody>"+
                 "<tr>" +
                 "<td>" + enReise.reiserFra + "</td>" + "<td>" + enReise.reiserTil + "</td>" + "<td>" + enReise.pris + " kr</td>" +
-                "<td>" + enReise.avganger + "</td><td> <a class='btn btn-primary' href='endre.html?id=" + enReise.rid + "'>Endre</a> </td>"
+                "<td>" + enReise.avganger + "</td><td> <a class='btn btn-primary' href='endre.html?id=" + enReise.rid + "'>Endre</a> </td>" +
+                "<td> <button onclick='slett(" + enReise.rid + ")'>Slett</button></td>"
                 "</tr>"+
                 "<tbody>";
             console.log(enReise.rid);
@@ -28,3 +29,11 @@
         $("#alleReiser").html(ut);
     });
 });
+
+function slett(id) {
+    let url = "buss/SlettReise?id=" + id; 
+    console.log(url);
+    $.get(url, function() {
+         window.location.href = "admin.html";
+    });
+}
