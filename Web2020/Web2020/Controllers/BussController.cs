@@ -134,7 +134,7 @@ namespace Web2020.Controllers
                 bool returnOK = await _db.Login(admin);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker" + admin.Brukernavn);
+                    _log.LogInformation("Innloggingen feilet for bruker" /*+ admin.Brukernavn*/);
                     HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }
