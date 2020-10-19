@@ -11,5 +11,8 @@
     const url = "buss/LagreReise";
     $.post(url, reise, function () {
         window.location.href = "admin.html";
+    })
+    .fail(function () {
+        $("#feil").html("Feil på server - prøv å 'Lagre Reise' igjen senere");
     });
 }

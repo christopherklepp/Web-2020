@@ -25,5 +25,8 @@ function endreReise() {
     $.post("buss/Endre", Reise, function () {
         console.log("Endret");
         window.location.href = "admin.html";
+    })
+    .fail(function () {
+        $("#feil").html("Feil på server - prøv 'Endre' igjen senere");
     });
 }

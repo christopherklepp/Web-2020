@@ -23,9 +23,15 @@ namespace Web2020.Controllers
             _db = db;
             _log = log;
         }
-        public async Task<bool> Endre(Reise endretReise)
+        public async Task<ActionResult> Endre(Reise endretReise)
         {
-            return await _db.Endre(endretReise);
+            bool returOK = await _db.Endre(endretReise);
+            if (!returOK)
+            {
+                _log.LogInformation("Endring kunne ikke utføres");
+                return NotFound("Endring av av reise kunne ikke utføres");
+            }
+            return Ok("Reise endret");
         }
 
 
@@ -103,7 +109,7 @@ namespace Web2020.Controllers
 
             if (enReise == null!)
             {
-                //_log.LogInformation("Fant ikke reisen");
+                _log.LogInformation("Fant ikke reisen");
                 return BadRequest("Fant ikke reisen");
 
             }
@@ -128,13 +134,29 @@ namespace Web2020.Controllers
             return BadRequest("Feil i inputvalidering på server");
         }
 
-        public async Task<bool> LagreReise(Reise nyReise)
+
+        public async Task<ActionResult> LagreReise(Reise nyReise)
         {
-            return await _db.LagreReise(nyReise);
+            bool returOK = await _db.LagreReise(nyReise);
+            if (!returOK)
+            {
+                _log.LogInformation("Reise kunne ikke lagres");
+                return BadRequest("Reise kunne ikke lagres");
+            }
+            return Ok("Kunde lagret");
         }
-        public async Task<bool> SlettReise(int id)
+
+        
+        public async Task<ActionResult> SlettReise(int id)
         {
-            return await _db.SlettReise(id);
+            bool returOK = await _db.SlettReise(id);
+            if (!returOK)
+            {
+                _log.LogInformation("Sletting av Kunden ble ikke utført");
+                return NotFound("Sletting av Kunden ble ikke utført");
+            }
+            return Ok("Kunde slettet");
+
         }
     }
 }

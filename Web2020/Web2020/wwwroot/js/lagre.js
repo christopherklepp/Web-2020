@@ -29,18 +29,8 @@ function lagreBestilling() {
         window.location.href = "bekreftelse.html";
     })
         .fail(function () {
-            $("#feil").html("Feil i registrering av bestilling. Prøv igjen. Husk å fylle ut og velg alle feltene");
-        });
-        
-   
-    $.post(url, buss, function (OK) {
-        if (OK == false) {
-
-            $("#feil").html("Feil i registrering av bestilling. Prøv igjen. Husk å fylle ut og velg alle feltene");
-        } else {
-            window.location.href = "bekreftelse.html";
-        }
-    });
+            $("#feil").html("Feil på server - prøv 'Bestill' igjen senere");
+        }); 
 }
 
 
