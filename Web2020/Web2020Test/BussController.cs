@@ -1,13 +1,16 @@
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
+using Web2020.Controllers;
 using Web2020.DAL;
 using Web2020.Models;
 using Xunit;
 
 namespace Web2020Test
 {
-    public class BussController
+    public class BussControllerTest
     {
         [Fact]
         public async Task SettInnData()
@@ -26,11 +29,16 @@ namespace Web2020Test
             };
 
             var mock = new Mock<IBussRepository>();
+            var loggerMock = new Mock<ILogger<BussController>>();
             mock.Setup(k => k.SettInnData(innBuss)).ReturnsAsync(true);
-            var bussController = new BussController(mock.Object);
+            var bussController = new BussController(mock.Object, loggerMock.Object);
+
 
             //act
-            bool resultat = await bussController.SettInnData(innBuss)
+            ActionResult returOK = await bussController.SettInnData(innBuss);
+
+            //assert
+            //Assert.True(returOK);
         }
     }
 }
