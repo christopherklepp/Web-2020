@@ -25,6 +25,13 @@ namespace Web2020
             services.AddControllers();
             services.AddDbContext<BussContext>(options => options.UseSqlite("Data Source=Buss.db"));
             services.AddScoped<IBussRepository, BussRepository>();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(12000);
+                options.Cookie.IsEssential = true;
+            });
+            services.AddDistributedMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +47,8 @@ namespace Web2020
             DBInit.Initialize(app);
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseStaticFiles(); //merk denne!
 

@@ -7,7 +7,7 @@ using System.Linq;
 using Web2020.Models;
 using Web2020.DAL;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.AspNetCore.Http;
 
 namespace Web2020.Controllers
 {
@@ -17,6 +17,7 @@ namespace Web2020.Controllers
     {
         private IBussRepository _db;
         private ILogger<BussController> _log;
+        private const string _loggetInn = "loggetInn";
 
         public BussController(IBussRepository db, ILogger<BussController> log)
         {
@@ -25,6 +26,10 @@ namespace Web2020.Controllers
         }
         public async Task<ActionResult> Endre(Reise endretReise)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             bool returOK = await _db.Endre(endretReise);
             if (!returOK)
             {
@@ -107,6 +112,10 @@ namespace Web2020.Controllers
 
         public async Task<ActionResult> HentEnReise(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             Reise enReise = await _db.HentEnReise(id);
 
             if (enReise == null)
@@ -128,9 +137,11 @@ namespace Web2020.Controllers
                 bool returnOK = await _db.Login(admin);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker" + admin.Brukernavn);
+                    _log.LogInformation("Innloggingen feilet for bruker" /*+ admin.Brukernavn*/);
+                    HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }
+                HttpContext.Session.SetString(_loggetInn, "LoggetInn");
                 return Ok(true);
             }
             _log.LogInformation("Feil i inputvalidering");
@@ -140,6 +151,10 @@ namespace Web2020.Controllers
 
         public async Task<ActionResult> LagreReise(Reise nyReise)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             bool returOK = await _db.LagreReise(nyReise);
             if (!returOK)
             {

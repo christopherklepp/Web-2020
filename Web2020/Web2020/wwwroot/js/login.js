@@ -16,7 +16,7 @@
                 $("#feil").html("Feil brukernavn eller passord er oppgitt");
             }
         })
-            .fail(function () {
+        .fail(function () {
                 $("#feil").html("Funksjonen for å logge inn fungerer ikke for øyeblikket, vennligst prøv igjen senere");
             });
     }

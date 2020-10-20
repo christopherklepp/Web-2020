@@ -204,14 +204,20 @@ namespace Web2020.DAL
             try
             {
                 Adminer finnAdmin = await _db.Adminer.FirstOrDefaultAsync(b => b.Brukernavn == admin.Brukernavn);
-              
-                byte[] hash = LagHash(admin.Passord, finnAdmin.Salt);
-                bool ok = hash.SequenceEqual(finnAdmin.Passord);
-                if (ok)
+                if (finnAdmin == null)
                 {
-                    return true;
+                    return false;
                 }
-                return false;
+                else
+                {
+                    byte[] hash = LagHash(admin.Passord, finnAdmin.Salt);
+                    bool ok = hash.SequenceEqual(finnAdmin.Passord);
+                    if (ok)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
             }
             catch (Exception e)
             {
