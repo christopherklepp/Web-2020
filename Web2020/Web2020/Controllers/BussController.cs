@@ -75,6 +75,7 @@ namespace Web2020.Controllers
                 return BadRequest("Bestilling ikke lagret");
 
             }
+            _log.LogInformation("Bestilling lagret");
             return Ok("Bestilling lagret");
 
         }
@@ -90,6 +91,7 @@ namespace Web2020.Controllers
                 return BadRequest("Fant ikke siste bestilling");
 
             }
+            _log.LogInformation("Fant siste bestilling");
             return Ok(sisteBestilling);
             
         }
@@ -107,12 +109,13 @@ namespace Web2020.Controllers
         {
             Reise enReise = await _db.HentEnReise(id);
 
-            if (enReise == null!)
+            if (enReise == null)
             {
                 _log.LogInformation("Fant ikke reisen");
                 return BadRequest("Fant ikke reisen");
 
             }
+            _log.LogInformation("Fant reisen");
             return Ok(enReise);
         }
 
@@ -143,7 +146,8 @@ namespace Web2020.Controllers
                 _log.LogInformation("Reise kunne ikke lagres");
                 return BadRequest("Reise kunne ikke lagres");
             }
-            return Ok("Kunde lagret");
+            _log.LogInformation("Reise lagret");
+            return Ok("Reise lagret");
         }
 
         
@@ -155,7 +159,8 @@ namespace Web2020.Controllers
                 _log.LogInformation("Sletting av Kunden ble ikke utført");
                 return NotFound("Sletting av Kunden ble ikke utført");
             }
-            return Ok("Kunde slettet");
+            _log.LogInformation("Sletting utført");
+            return Ok("Reise slettet");
 
         }
     }
