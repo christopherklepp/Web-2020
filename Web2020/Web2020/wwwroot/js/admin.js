@@ -1,7 +1,5 @@
 ﻿$(function () {
-    console.log("Nei")
-    $.get("buss/HentReiser", function (reiser) {
-        console.log("Hei")
+    $.get("buss/HentReiserAdmin", function (reiser) {
         let ut = "<body>"+
             "<div class='container'>" +
             
@@ -10,7 +8,6 @@
             "<tr>" +
             "<th>Fra</th><th>Til</th><th>Pris</th><th>Avganger</th><th>Endre</th>" +
             "</tr>";
-        console.log("Opprettet")
         for (let enReise of reiser) {
             ut += "<tbody>"+
                 "<tr>" +
@@ -19,7 +16,6 @@
                 "<td> <button onclick='slett(" + enReise.rid + ")'>Slett</button></td>"
                 "</tr>"+
                 "<tbody>";
-            console.log(enReise.rid);
         }
         ut += "</table>" +
             "</form>"+
@@ -27,7 +23,12 @@
             "</body>";
 
         $("#alleReiser").html(ut);
-    });
+    })
+        .fail(function (feil) {
+            if (feil.status == 401) {
+                window.location.href = "login.html";
+            }
+        });
 });
 
 function slett(id) {

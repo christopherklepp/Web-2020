@@ -109,6 +109,16 @@ namespace Web2020.Controllers
             return Ok(alleResier);
         }
 
+        public async Task<ActionResult<Reise>> HentReiserAdmin()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+            List<Reise> alleResier = await _db.HentReiser();
+            return Ok(alleResier);
+        }
+
 
         public async Task<ActionResult> HentEnReise(int id)
         {
@@ -137,7 +147,7 @@ namespace Web2020.Controllers
                 bool returnOK = await _db.Login(admin);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker" /*+ admin.Brukernavn*/);
+                    _log.LogInformation("Innloggingen feilet for bruker" + admin.Brukernavn);
                     HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }

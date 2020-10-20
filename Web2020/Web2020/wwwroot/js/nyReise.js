@@ -12,7 +12,11 @@
     $.post(url, reise, function () {
         window.location.href = "admin.html";
     })
-    .fail(function () {
-        $("#feil").html("Feil på server - prøv å 'Lagre Reise' igjen senere");
-    });
+        .fail(function (feil) {
+            if (feil.status == 401) {
+                window.location.href = "login.html";
+            }
+            else {
+                $("#feil").html("Feil på server - prøv å 'Lagre Reise' igjen senere");
+            }
 }

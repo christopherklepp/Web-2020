@@ -11,7 +11,12 @@
         $("#til").val(reise.reiserTil);
         $("#pris").val(reise.pris);
         $("#avganger").val(reise.avganger);
-    });
+    })
+        .fail(function (feil) {
+            if (feil.status == 401) {
+                window.location.href = "login.html";
+            }
+        });
 });
 
 function endreReise() {
