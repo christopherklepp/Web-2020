@@ -225,5 +225,9 @@ namespace Web2020.DAL
                 return false;
             }
         }
+        public async Task<bool> ErLoggetInn()
+        {
+             return true;
+        }
     }
 }

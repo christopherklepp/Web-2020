@@ -188,5 +188,14 @@ namespace Web2020.Controllers
             return Ok("Reise slettet");
 
         }
+
+        public async Task<ActionResult> ErLoggetInn()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
+            return Ok("Logget inn");
+        }
     }
 }
