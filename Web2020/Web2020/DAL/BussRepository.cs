@@ -16,7 +16,7 @@ namespace Web2020.DAL
     {
         private readonly BussContext _db;
         private ILogger<BussRepository> _log;
-        public BussRepository (BussContext db, ILogger<BussRepository> log)
+        public BussRepository(BussContext db, ILogger<BussRepository> log)
         {
             _db = db;
             _log = log;
@@ -40,7 +40,7 @@ namespace Web2020.DAL
                         reiserTil = s.reiserTil,
                         pris = s.pris,
                         avganger = s.avganger
-                    }) ;
+                    });
                 }
 
                 return returnList;
@@ -60,7 +60,7 @@ namespace Web2020.DAL
         {
             try
             {
-                
+
                 Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
                 Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.epost == buss.epost);
                 var bestilling = new Bestilling
@@ -155,15 +155,15 @@ namespace Web2020.DAL
         {
             try
             {
-                    Reise slettSted = await _db.Reiser.FindAsync(id);
-                    _db.Reiser.Remove(slettSted);
-                    await _db.SaveChangesAsync();
+                Reise slettSted = await _db.Reiser.FindAsync(id);
+                _db.Reiser.Remove(slettSted);
+                await _db.SaveChangesAsync();
 
-                    return true;
-                }
-            
+                return true;
+            }
+
             catch
-            {  
+            {
                 return false;
             }
         }
@@ -227,7 +227,12 @@ namespace Web2020.DAL
         }
         public async Task<bool> ErLoggetInn()
         {
-             return true;
+            return true;
+        }
+
+        public async Task<bool> Loggut()
+        {
+            return true;
         }
     }
 }

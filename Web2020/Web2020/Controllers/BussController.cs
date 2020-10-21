@@ -197,5 +197,11 @@ namespace Web2020.Controllers
             }
             return Ok("Logget inn");
         }
+
+        public async Task<ActionResult> LoggUt()
+        {
+            HttpContext.Session.SetString(_loggetInn, "");
+            return Ok("Logget ut");
+        }
     }
 }

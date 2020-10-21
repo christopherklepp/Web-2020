@@ -33,11 +33,17 @@
 
 function slett(id) {
     let url = "buss/SlettReise?id=" + id; 
-    console.log(url);
     $.get(url, function() {
          window.location.href = "admin.html";
     })
     .fail(function () {
         $("#feil").html("Feil på server - prøv 'Slett' igjen senere");
+    });
+}
+
+function loggUt() {
+    let url = "buss/LoggUt";
+    $.get(url, function () {
+        window.location.href = "index.html";
     });
 }
