@@ -58,6 +58,7 @@ namespace Web2020Test
 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
             Assert.Equal("Bestilling lagret", resultat.Value);
+<<<<<<< HEAD
         }
 
         [Fact]
@@ -232,6 +233,8 @@ namespace Web2020Test
 
             // Assert
             Assert.Equal(_ikkeLoggetInn, mockSession[_loggetInn]);
+=======
+>>>>>>> baf998324d6b71f5ea701e41df4064f6bc9a8a82
         }
     }
 }
