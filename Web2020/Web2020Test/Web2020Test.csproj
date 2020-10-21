@@ -17,4 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Web2020\Web2020.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60" />
+  </ItemGroup>
 </Project>

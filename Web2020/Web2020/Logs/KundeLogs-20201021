@@ -7,3 +7,8 @@
 2020-10-21T10:15:53.5364651+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
 2020-10-21T10:15:53.5481691+02:00  [INF] Hosting environment: "Development" (c3307c92)
 2020-10-21T10:15:53.5505104+02:00  [INF] Content root path: "C:\Users\98eiv\source\repos\web2020\Web2020\Web2020" (b5d60022)
+2020-10-21T10:20:02.1154700+02:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2020-10-21T10:20:02.1308520+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2020-10-21T10:20:02.1309750+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2020-10-21T10:20:02.1310190+02:00  [INF] Content root path: "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020" (b5d60022)
+2020-10-21T10:20:41.0120530+02:00 0HM3LJ8DRURQP:00000023 [INF] Fant reisen (a9f13656)
