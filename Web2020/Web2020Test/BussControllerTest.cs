@@ -57,7 +57,181 @@ namespace Web2020Test
             //assert
 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
-            Assert.Equal("Bestilling lagretttt", resultat.Value);
+            Assert.Equal("Bestilling lagret", resultat.Value);
+        }
+
+        [Fact]
+        public async Task SettInnDataLoggetInnIkkeOK()
+        {
+            // Arrange
+
+            mockRep.Setup(b => b.SettInnData(It.IsAny<Buss>())).ReturnsAsync(false);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.SettInnData(It.IsAny<Buss>()) as BadRequestObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
+            Assert.Equal("Bestilling ikke lagret", resultat.Value);
+        }
+
+        [Fact]
+        public async Task SlettReiseLoggetInnOK()
+        {
+            // Arrange
+
+            mockRep.Setup(b => b.SlettReise(It.IsAny<int>())).ReturnsAsync(true);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.SlettReise(It.IsAny<int>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal("Reise slettet", resultat.Value);
+        }
+
+        [Fact]
+        public async Task SlettReiseLoggetInnIkkeOK()
+        {
+            // Arrange
+
+            mockRep.Setup(b => b.SlettReise(It.IsAny<int>())).ReturnsAsync(false);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.SlettReise(It.IsAny<int>()) as NotFoundObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
+            Assert.Equal("Sletting av Kunden ble ikke utført", resultat.Value);
+        }
+
+        /*
+        [Fact]
+        public async Task HentEnReiseLoggetInnOK()
+        {
+            // Arrange
+            var buss1 = new Buss
+            {
+                Id = 1,
+                reiserFra = "Oslo",
+                reiserTil = "Bergen",
+                avganger = "Mandag: kl 11:00",
+                fornavn = "Ola",
+                etternavn = "Kristiansen",
+                epost = "ola1999@gmail.com",
+                pris = 299
+            };
+
+            mockRep.Setup(k => k.HentEnReise(It.IsAny<int>())).ReturnsAsync(buss1);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.HentEnReise(It.IsAny<int>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal<Kunde>(kunde1, (Kunde)resultat.Value);
+        }*/
+
+        [Fact]
+        public async Task EndreLoggetInnOK()
+        {
+            // Arrange
+
+            mockRep.Setup(k => k.Endre(It.IsAny<Reise>())).ReturnsAsync(true);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.Endre(It.IsAny<Reise>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.Equal("Reise endret", resultat.Value);
+        }
+
+
+        [Fact]
+        public async Task EndreLoggetInnIkkeOK()
+        {
+            // Arrange
+
+            mockRep.Setup(k => k.Endre(It.IsAny<Reise>())).ReturnsAsync(true);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.Endre(It.IsAny<Reise>()) as NotFoundObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
+            Assert.Equal("Endring av reise kunne ikke utføres", resultat.Value);
+        }
+
+        [Fact]
+        public async Task LogInOK()
+        {
+            mockRep.Setup(k => k.Login(It.IsAny<Admin>())).ReturnsAsync(true);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockSession[_loggetInn] = _loggetInn;
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            var resultat = await bussController.Login(It.IsAny<Admin>()) as OkObjectResult;
+
+            // Assert 
+            Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
+            Assert.True((bool)resultat.Value);
+        }
+
+        [Fact]
+        public void LoggUt()
+        {
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
+            mockSession[_loggetInn] = _loggetInn;
+            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            // Act
+            bussController.LoggUt();
+
+            // Assert
+            Assert.Equal(_ikkeLoggetInn, mockSession[_loggetInn]);
         }
     }
 }
