@@ -9,6 +9,17 @@
         });
 });
 
+function nyReiseValid() {
+   
+    const fraOK = validerFra($("#fra").val());
+    const tilOK = validerTil($("#til").val());
+    const prisOK = validerPris($("#pris").val());
+    if (fraOK && tilOK && prisOK) {
+
+        lagre();
+    }
+}
+
 
 function lagre() {
     let dag = $("#dag").val();
