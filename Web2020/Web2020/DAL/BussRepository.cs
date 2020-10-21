@@ -229,10 +229,5 @@ namespace Web2020.DAL
         {
             return true;
         }
-
-        public async Task<bool> Loggut()
-        {
-            return true;
-        }
     }
 }

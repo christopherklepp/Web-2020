@@ -39,49 +39,25 @@ namespace Web2020.Controllers
             return Ok("Reise endret");
         }
 
-
-        /*
-        public async Task<bool> SettInnData(Buss buss)
-        {
-
-            if (ModelState.IsValid)
-            {
-                return await _db.SettInnData(buss);
-            }
-            return false;
-        }*/
-
-        
-        /*public async Task<List<Reise>> HentReiser()
-        {
-            _log.LogInformation("HentReiser funket");
-            return await _db.HentReiser();
-        }*/
-
-        
-        /*public async Task<Reise> HentEnReise(int id)
-        {
-            return await _db.HentEnReise(id);
-        }*/
-
-        /*
-       public async Task<Buss> SisteBestilling()
-       {
-           return await _db.SisteBestilling();
-       }*/
-
         public async Task<ActionResult> SettInnData(Buss buss)
         {
-
-            bool returOK = await _db.SettInnData(buss);
-            if (!returOK)
+            if (ModelState.IsValid)
             {
-                _log.LogInformation("Bestilling ikke lagret");
-                return BadRequest("Bestilling ikke lagret");
+                bool returOK = await _db.SettInnData(buss);
+                if (!returOK)
+                {
+                    _log.LogInformation("Bestilling ikke lagret");
+                    return BadRequest("Bestilling ikke lagret");
 
+                }
+                _log.LogInformation("Bestilling lagret");
+                return Ok("Bestilling lagret");
             }
-            _log.LogInformation("Bestilling lagret");
-            return Ok("Bestilling lagret");
+            else
+            {
+                _log.LogInformation("Feil i inputvalidering");
+                return BadRequest("Feil i inputvalidering på server");
+            }
 
         }
 
@@ -198,10 +174,9 @@ namespace Web2020.Controllers
             return Ok("Logget inn");
         }
 
-        public async Task<ActionResult> LoggUt()
+        public void LoggUt()
         {
             HttpContext.Session.SetString(_loggetInn, "");
-            return Ok("Logget ut");
         }
     }
 }

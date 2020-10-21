@@ -57,7 +57,7 @@ namespace Web2020Test
             //assert
 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
-            Assert.Equal("Bestilling lagretttt", resultat.Value);
+            Assert.Equal("Bestilling lagret", resultat.Value);
         }
     }
 }
