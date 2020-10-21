@@ -906,3 +906,4 @@ C:\Users\chris\Source\Repos\web2020\Web2020\Web2020\obj\Debug\netcoreapp3.1\stat
 C:\Users\chris\Source\Repos\web2020\Web2020\Web2020\obj\Debug\netcoreapp3.1\Web2020.dll
 C:\Users\chris\Source\Repos\web2020\Web2020\Web2020\obj\Debug\netcoreapp3.1\Web2020.pdb
 C:\Users\chris\Source\Repos\web2020\Web2020\Web2020\obj\Debug\netcoreapp3.1\Web2020.genruntimeconfig.cache
+C:\Users\98eiv\source\repos\web2020\Web2020\Web2020\obj\Debug\netcoreapp3.1\Web2020.csprojAssemblyReference.cache

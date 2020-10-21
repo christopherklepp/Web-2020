@@ -27,7 +27,8 @@ namespace Web2020.Models
         public string reiserFra { get; set; }
         public string reiserTil { get; set; }
         public double pris { get; set; }
-        public string avganger { get; set; }
+        public string dag { get; set; }
+        public string tidspunkt { get; set; }
     }
 
     public class Bestilling

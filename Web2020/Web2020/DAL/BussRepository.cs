@@ -39,7 +39,9 @@ namespace Web2020.DAL
                         reiserFra = s.reiserFra,
                         reiserTil = s.reiserTil,
                         pris = s.pris,
-                        avganger = s.avganger
+                        dag = s.dag,
+                        tidspunkt = s.tidspunkt
+
                     });
                 }
 
@@ -111,7 +113,8 @@ namespace Web2020.DAL
 
             foreach (var bestilling in sisteBestilling.Bestilling)
             {
-                buss.avganger = bestilling.reiser.avganger;
+                buss.dag = bestilling.reiser.dag;
+                buss.tidspunkt = bestilling.reiser.tidspunkt;
                 buss.reiserFra = bestilling.reiser.reiserFra;
                 buss.reiserTil = bestilling.reiser.reiserTil;
             }
@@ -140,7 +143,8 @@ namespace Web2020.DAL
                 nyReise.reiserFra = endretReise.reiserFra;
                 nyReise.reiserTil = endretReise.reiserTil;
                 nyReise.pris = endretReise.pris;
-                nyReise.avganger = endretReise.avganger;
+                nyReise.dag = endretReise.dag;
+                nyReise.tidspunkt = endretReise.tidspunkt;
                 await _db.SaveChangesAsync();
             }
             catch

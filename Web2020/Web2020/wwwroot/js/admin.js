@@ -12,7 +12,7 @@
             ut += "<tbody>"+
                 "<tr>" +
                 "<td>" + enReise.reiserFra + "</td>" + "<td>" + enReise.reiserTil + "</td>" + "<td>" + enReise.pris + " kr</td>" +
-                "<td>" + enReise.avganger + "</td><td> <a class='btn btn-primary' href='endre.html?id=" + enReise.rid + "'>Endre</a> </td>" +
+                "<td>" + enReise.dag + ": kl " + enReise.tidspunkt + "</td><td> <a class='btn btn-primary' href='endre.html?id=" + enReise.rid + "'>Endre</a> </td>" +
                 "<td> <button onclick='slett(" + enReise.rid + ")'>Slett</button></td>"
                 "</tr>"+
                 "<tbody>";

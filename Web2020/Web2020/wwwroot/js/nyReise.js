@@ -22,13 +22,12 @@ function nyReiseValid() {
 
 
 function lagre() {
-    let dag = $("#dag").val();
-    let tid = $("#tid").val();
     const reise = {
         reiserFra: $("#fra").val(),
         reiserTil: $("#til").val(),
         pris: $("#pris").val(),
-        avganger: dag + ": kl " + tid
+        dag: $("#dag").val(),
+        tidspunkt: $("#tid").val()
     };
 
     const url = "buss/LagreReise";

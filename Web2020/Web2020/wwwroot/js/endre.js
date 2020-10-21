@@ -10,7 +10,8 @@
         $("#fra").val(reise.reiserFra);
         $("#til").val(reise.reiserTil);
         $("#pris").val(reise.pris);
-        $("#avganger").val(reise.avganger);
+        $("#dag").val(reise.dag);
+        $("#tid").val(reise.tidspunkt);
     })
         .fail(function (feil) {
             if (feil.status == 401) {
@@ -35,7 +36,8 @@ function endreReise() {
         reiserFra: $("#fra").val(),
         reiserTil: $("#til").val(),
         pris: $("#pris").val(),
-        avganger: $("#avganger").val()
+        dag: $("#dag").val(),
+        tidspunkt: $("#tid").val()
     };
     $.post("buss/Endre", Reise, function () {
         console.log("Endret");

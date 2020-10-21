@@ -83,8 +83,9 @@ function formaterAvganger(reiser) {
     let avgang;
     let ut = "";
     for (let enReise of reiser) {
+        
         if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
-            avgang = enReise.avganger;
+            avgang = enReise.dag + ": kl " + enReise.tidspunkt;
             ut += "<option>" + avgang + "</option>";
         }
     }
@@ -98,7 +99,8 @@ function pris() {
         let avganger = $("#avganger").val();
         let pris;
         for (let enReise of reiser) {
-            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil && avganger == enReise.avganger) {
+            let avgangSjekk = enReise.dag + ": kl " + enReise.tidspunkt;
+            if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil && avganger == avgangSjekk) {
                 pris = enReise.pris + " kr";
                 $("#pris").html(pris);
             }

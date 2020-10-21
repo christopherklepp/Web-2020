@@ -37,8 +37,20 @@
                 <span id="feilPris" style="color: darkred"></span>
             </div>
             <div class="form-group">
-                <label for="Avganger">Avganger</label>
-                <input type="text" class="form-control" id="avganger" />
+                <label for="Dag">Dag</label>
+                <select id="dag" class="form-control">
+                    <option>Mandag</option>
+                    <option>Tirsdag</option>
+                    <option>Onsdag</option>
+                    <option>Torsdag</option>
+                    <option>Fredag</option>
+                    <option>Lørdag</option>
+                    <option>Søndag</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Tid">Tid</label>
+                <input type="time" class="form-control" id="tid" />
             </div>
             <div id="feil"></div>
             <input type="button" id="knappEndre" class="btn btn-success btn-lg btn-block" value="Endre" onclick="endreReiseValid()" />
