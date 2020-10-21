@@ -63,7 +63,8 @@ namespace Web2020.DAL
             try
             {
 
-                Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra & r.reiserTil == buss.reiserTil);
+                Reise funnetReise = await _db.Reiser.FirstOrDefaultAsync(r => r.reiserFra == buss.reiserFra && r.reiserTil == buss.reiserTil &&
+                r.dag == buss.dag && r.tidspunkt == buss.tidspunkt && r.pris == buss.pris);
                 Kunde funnetKunde = await _db.Kunder.FirstOrDefaultAsync(k => k.epost == buss.epost);
                 var bestilling = new Bestilling
                 {
@@ -113,10 +114,11 @@ namespace Web2020.DAL
 
             foreach (var bestilling in sisteBestilling.Bestilling)
             {
-                buss.dag = bestilling.reiser.dag;
                 buss.tidspunkt = bestilling.reiser.tidspunkt;
                 buss.reiserFra = bestilling.reiser.reiserFra;
                 buss.reiserTil = bestilling.reiser.reiserTil;
+                buss.pris = bestilling.reiser.pris;
+                buss.dag = bestilling.reiser.dag;
             }
             return buss;
         }

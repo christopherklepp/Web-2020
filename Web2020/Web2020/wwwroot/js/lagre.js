@@ -12,15 +12,25 @@
 
 
 function lagreBestilling() {
+    let avganger = $("#avganger").val();
+    let avgangerSplit = avganger.split(':');
+    let dager = avgangerSplit[0];
+    let tidspunkt = avgangerSplit[1] + ":" + avgangerSplit[2];
+
+    let priser = $("#priser").val();
+    let priserSplit = priser.split(' ');
+
     const buss = {
         reiserFra: $("#reiseFra").val(),
         reiserTil: $("#reiseTil").val(),
-        //tidspunkt: $("#tidspunkt").val(),
-        avganger: $("#avganger").val(),
         fornavn: $("#fornavn").val(),
         etternavn: $("#etternavn").val(),
-        epost: $("#epost").val()
+        epost: $("#epost").val(),
+        dag: dager,
+        tidspunkt: tidspunkt.trim(),
+        pris: priserSplit[0]
     };
+   
 
     const url = "buss/SettInnData";
 
@@ -60,6 +70,7 @@ function tilReiser() {
 }
 
 function formaterTilReiser(reiser) {
+    
     let reiserFra = $("#reiseFra").val();
     let ut;
     for (let enReise of reiser) {
@@ -85,7 +96,7 @@ function formaterAvganger(reiser) {
     for (let enReise of reiser) {
         
         if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil) {
-            avgang = enReise.dag + ": kl " + enReise.tidspunkt;
+            avgang = enReise.dag + ": " + enReise.tidspunkt;
             ut += "<option>" + avgang + "</option>";
         }
     }
@@ -99,10 +110,10 @@ function pris() {
         let avganger = $("#avganger").val();
         let pris;
         for (let enReise of reiser) {
-            let avgangSjekk = enReise.dag + ": kl " + enReise.tidspunkt;
+            let avgangSjekk = enReise.dag + ": " + enReise.tidspunkt;
             if (reiserFra == enReise.reiserFra && reiserTil == enReise.reiserTil && avganger == avgangSjekk) {
                 pris = enReise.pris + " kr";
-                $("#pris").html(pris);
+                $("#priser").val(pris);
             }
         }
     });
