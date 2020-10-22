@@ -1,14 +1,22 @@
 ﻿<Properties StartupConfiguration="{38548E02-D75B-4BFA-B1D2-AB5B94E78D2E}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Web2020Test/BussControllerTest.cs">
     <Files>
-      <File FileName="Web2020Test/BussControllerTest.cs" Line="236" Column="1" />
-      <File FileName="Web2020Test/MockHttpSession.cs" Line="14" Column="14" />
+      <File FileName="Web2020Test/BussControllerTest.cs" Line="488" Column="27" />
+      <File FileName="Web2020/Controllers/BussController.cs" />
+      <File FileName="Web2020Test/MockHttpSession.cs" />
+      <File FileName="Web2020/DAL/BussRepository.cs" />
+      <File FileName="Web2020/Models/Buss.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Web2020" expanded="True">
-            <Node name="Web2020" expanded="True" />
+            <Node name="Web2020" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="DAL" expanded="True" />
+              <Node name="Logs" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
             <Node name="Web2020Test" expanded="True">
               <Node name="BussControllerTest.cs" selected="True" />
             </Node>

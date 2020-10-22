@@ -26,21 +26,33 @@ namespace Web2020.Controllers
         }
         public async Task<ActionResult> Endre(Reise endretReise)
         {
+            //LAGT TIL
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
-            bool returOK = await _db.Endre(endretReise);
-            if (!returOK)
+            if (ModelState.IsValid)
             {
-                _log.LogInformation("Endring kunne ikke utføres");
-                return NotFound("Endring av av reise kunne ikke utføres");
+                bool returOK = await _db.Endre(endretReise);
+                if (!returOK)
+                {
+                    _log.LogInformation("Endring kunne ikke utføres");
+                    return NotFound("Endring av reise kunne ikke utføres");
+                }
+                return Ok("Reise endret");
             }
-            return Ok("Reise endret");
+                
+            _log.LogInformation("Feil i inputvalidering");
+            return BadRequest("Feil i inputvalidering på server");
         }
 
         public async Task<ActionResult> SettInnData(Buss buss)
         {
+            //LAGT TIL
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized("Ikke logget inn");
+            }
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.SettInnData(buss);
@@ -79,17 +91,21 @@ namespace Web2020.Controllers
 
 
 
-        public async Task<ActionResult<Reise>> HentReiser()
+        public async Task <ActionResult> HentReiser()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized("Ikke logget inn");
+            }
             List<Reise> alleResier = await _db.HentReiser();
             return Ok(alleResier);
         }
 
-        public async Task<ActionResult<Reise>> HentReiserAdmin()
+        public async Task<ActionResult> HentReiserAdmin()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("ikke logget inn");
             }
             List<Reise> alleResier = await _db.HentReiser();
             return Ok(alleResier);
@@ -100,7 +116,7 @@ namespace Web2020.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             Reise enReise = await _db.HentEnReise(id);
 
