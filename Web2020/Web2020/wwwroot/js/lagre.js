@@ -66,6 +66,7 @@ function tilReiser() {
     $.get("buss/HentReiser", function (reiser) {
         formaterTilReiser(reiser);
         formaterAvganger(reiser);
+        pris();
     });
 }
 

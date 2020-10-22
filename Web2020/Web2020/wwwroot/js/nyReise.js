@@ -7,6 +7,10 @@
                 window.location.href = "login.html";
             }
         });
+
+    let dato = new Date();
+    let tid = dato.getHours() + ":" + dato.getMinutes();
+    $("#tid").val(tid);
 });
 
 function nyReiseValid() {

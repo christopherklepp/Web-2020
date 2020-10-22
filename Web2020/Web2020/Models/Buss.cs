@@ -14,10 +14,11 @@ namespace Web2020.Models
         public string reiserFra { get; set; }
         [Required]
         public string reiserTil { get; set; }
-        //[Required]
+        [Required]
         /*[Display(Name = "Tidspunkt")]
         [DataType(DataType.Date)]*/
         public string dag { get; set; }
+        [Required]
         public string tidspunkt { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z]*$")]
         [StringLength(20)]

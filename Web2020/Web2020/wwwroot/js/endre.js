@@ -40,7 +40,6 @@ function endreReise() {
         tidspunkt: $("#tid").val()
     };
     $.post("buss/Endre", Reise, function () {
-        console.log("Endret");
         window.location.href = "admin.html";
     })
     .fail(function () {
