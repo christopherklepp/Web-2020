@@ -53,6 +53,35 @@ namespace Web2020.DAL
                 return null;
             }
         }
+        public async Task<List<Reise>> HentReiserAdmin()
+        {
+            try
+            {
+                var steder = await _db.Reiser.ToListAsync();
+                var returnList = new List<Reise>();
+
+                foreach (Reise s in steder)
+                {
+                    returnList.Add(new Reise
+                    {
+                        Rid = s.Rid,
+                        reiserFra = s.reiserFra,
+                        reiserTil = s.reiserTil,
+                        pris = s.pris,
+                        dag = s.dag,
+                        tidspunkt = s.tidspunkt
+
+                    });
+                }
+
+                return returnList;
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
 
         //Lagrer bestilling til databasen, sjekker at bruker ikke alt er lagret i databasen

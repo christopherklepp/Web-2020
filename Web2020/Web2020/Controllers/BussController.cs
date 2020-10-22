@@ -99,10 +99,10 @@ namespace Web2020.Controllers
             {
                 return Unauthorized("ikke logget inn");
             }
-            List<Reise> alleResier = await _db.HentReiser();
+            List<Reise> alleResier = await _db.HentReiserAdmin();
             return Ok(alleResier);
         }
-
+        
 
         public async Task<ActionResult> HentEnReise(int id)
         {

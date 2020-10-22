@@ -82,24 +82,7 @@ namespace Web2020Test
             Assert.Equal("Bestilling ikke lagret", resultat.Value);
         }
 
-        [Fact]
-        public async Task SettInnDataIkkeLoggetInn()
-        {
-            mockRep.Setup(k => k.SettInnData(It.IsAny<Buss>())).ReturnsAsync(true);
-
-            var bussController = new BussController(mockRep.Object, mockLog.Object);
-
-            mockSession[_loggetInn] = _ikkeLoggetInn;
-            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
-
-            // Act
-            var resultat = await bussController.SettInnData(It.IsAny<Buss>()) as UnauthorizedObjectResult;
-
-            // Assert 
-            Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
-            Assert.Equal("Ikke logget inn", resultat.Value);
-        }
+        
         
 
         [Fact]
@@ -194,28 +177,70 @@ namespace Web2020Test
             Assert.Equal<List<Reise>>((List<Reise>)resultat.Value, reiseListe);
         }
 
-        
+
+
+
+
+
         [Fact]
-        public async Task HentReiserIkkeLoggetInn()
+        public async Task HentReiserAdminIkkeLoggetInn()
         {
             // Arrange
-
             //var tomListe = new List<Kunde>();
-
-            mockRep.Setup(k => k.HentReiser()).ReturnsAsync(It.IsAny<List<Reise>>());
-
+            mockRep.Setup(k => k.HentReiserAdmin()).ReturnsAsync(It.IsAny<List<Reise>>());
             var bussController = new BussController(mockRep.Object, mockLog.Object);
-
             mockSession[_loggetInn] = _ikkeLoggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             bussController.ControllerContext.HttpContext = mockHttpContext.Object;
-
             // Act
-            var resultat = await bussController.HentReiser() as UnauthorizedObjectResult;
-
+            var resultat = await bussController.HentReiserAdmin() as UnauthorizedObjectResult;
             // Assert 
             Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
-            Assert.Equal("Ikke logget inn", resultat.Value);
+            Assert.Equal("ikke logget inn", resultat.Value);
+        }
+
+
+        [Fact]
+        public async Task HentReiserOK()
+        {
+            // Arrange
+            var reise1 = new Reise
+            {
+                Rid = 1,
+                reiserFra = "Oslo",
+                reiserTil = "Bergen",
+                pris = 299,
+                dag = "Mandag",
+                tidspunkt = "13:00"
+            };
+            var reise2 = new Reise
+            {
+                Rid = 2,
+                reiserFra = "Bergen",
+                reiserTil = "Oslo",
+                pris = 399,
+                dag = "Tirsdag",
+                tidspunkt = "12:00"
+            };
+            var reise3 = new Reise
+            {
+                Rid = 3,
+                reiserFra = "Trondheim",
+                reiserTil = "Oslo",
+                pris = 599,
+                dag = "Onsdag",
+                tidspunkt = "14:00"
+            };
+            var reiseListe = new List<Reise>();
+            reiseListe.Add(reise1);
+            reiseListe.Add(reise2);
+            reiseListe.Add(reise3);
+            mockRep.Setup(k => k.HentReiser()).ReturnsAsync(reiseListe);
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+            // Act
+            var resultat = await bussController.HentReiser() as OkObjectResult;
+            // Assert 
+            Assert.Equal((List<Reise>)resultat.Value, reiseListe);
         }
 
         [Fact]
@@ -249,49 +274,20 @@ namespace Web2020Test
                 dag = "Onsdag",
                 tidspunkt = "14:00"
             };
-
             var reiseListe = new List<Reise>();
             reiseListe.Add(reise1);
             reiseListe.Add(reise2);
             reiseListe.Add(reise3);
-
-            mockRep.Setup(k => k.HentReiser()).ReturnsAsync(reiseListe);
-
+            mockRep.Setup(k => k.HentReiserAdmin()).ReturnsAsync(reiseListe);
             var bussController = new BussController(mockRep.Object, mockLog.Object);
-
             mockSession[_loggetInn] = _loggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             bussController.ControllerContext.HttpContext = mockHttpContext.Object;
-
             // Act
-            var resultat = await bussController.HentReiser() as OkObjectResult;
-
+            var resultat = await bussController.HentReiserAdmin() as OkObjectResult;
             // Assert 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
-            Assert.Equal<List<Reise>>((List<Reise>)resultat.Value, reiseListe);
-        }
-
-        [Fact]
-        public async Task HentReiserAdminIkkeLoggetInn()
-        {
-            // Arrange
-
-            //var tomListe = new List<Kunde>();
-
-            mockRep.Setup(k => k.HentReiser()).ReturnsAsync(It.IsAny<List<Reise>>());
-
-            var bussController = new BussController(mockRep.Object, mockLog.Object);
-
-            mockSession[_loggetInn] = _ikkeLoggetInn;
-            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            bussController.ControllerContext.HttpContext = mockHttpContext.Object;
-
-            // Act
-            var resultat = await bussController.HentReiser() as UnauthorizedObjectResult;
-
-            // Assert 
-            Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
-            Assert.Equal("Ikke logget inn", resultat.Value);
+            Assert.Equal((List<Reise>)resultat.Value, reiseListe);
         }
 
         [Fact]
