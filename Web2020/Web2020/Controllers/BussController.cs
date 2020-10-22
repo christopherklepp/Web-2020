@@ -24,24 +24,22 @@ namespace Web2020.Controllers
             _db = db;
             _log = log;
         }
-        public async Task<ActionResult> Endre(Reise endretReise)
+        public async Task<ActionResult> Endre(Reise endreReise)
         {
-            //LAGT TIL
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
-                bool returOK = await _db.Endre(endretReise);
+                bool returOK = await _db.Endre(endreReise);
                 if (!returOK)
                 {
                     _log.LogInformation("Endring kunne ikke utføres");
-                    return NotFound("Endring av reise kunne ikke utføres");
+                    return NotFound("Endring kunne ikke utføres");
                 }
                 return Ok("Reise endret");
             }
-                
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering på server");
         }
@@ -49,10 +47,7 @@ namespace Web2020.Controllers
         public async Task<ActionResult> SettInnData(Buss buss)
         {
             //LAGT TIL
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized("Ikke logget inn");
-            }
+            
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.SettInnData(buss);
@@ -93,10 +88,7 @@ namespace Web2020.Controllers
 
         public async Task <ActionResult> HentReiser()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
-            {
-                return Unauthorized("Ikke logget inn");
-            }
+            
             List<Reise> alleResier = await _db.HentReiser();
             return Ok(alleResier);
         }
@@ -123,7 +115,7 @@ namespace Web2020.Controllers
             if (enReise == null)
             {
                 _log.LogInformation("Fant ikke reisen");
-                return BadRequest("Fant ikke reisen");
+                return NotFound("Fant ikke reisen");
 
             }
             _log.LogInformation("Fant reisen");
@@ -139,7 +131,7 @@ namespace Web2020.Controllers
                 bool returnOK = await _db.Login(admin);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker" + admin.Brukernavn);
+                    _log.LogInformation("Innloggingen feilet for bruker");
                     HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }
@@ -155,21 +147,30 @@ namespace Web2020.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
-            bool returOK = await _db.LagreReise(nyReise);
-            if (!returOK)
+            if (ModelState.IsValid)
             {
-                _log.LogInformation("Reise kunne ikke lagres");
-                return BadRequest("Reise kunne ikke lagres");
+                bool returOK = await _db.LagreReise(nyReise);
+                if (!returOK)
+                {
+                    _log.LogInformation("Reise kunne ikke lagres");
+                    return NotFound("Reise kunne ikke lagres");
+                }
+                _log.LogInformation("Reise lagret");
+                return Ok("Reise lagret");
             }
-            _log.LogInformation("Reise lagret");
-            return Ok("Reise lagret");
+            _log.LogInformation("Feil i inputvalidering");
+            return BadRequest("Feil i inputvalidering på server");
         }
 
         
         public async Task<ActionResult> SlettReise(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized("Ikke logget inn");
+            }
             bool returOK = await _db.SlettReise(id);
             if (!returOK)
             {
@@ -185,8 +186,9 @@ namespace Web2020.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("ikke logget inn");
             }
+            
             return Ok("Logget inn");
         }
 
