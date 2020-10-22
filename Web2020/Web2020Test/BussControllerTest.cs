@@ -722,7 +722,7 @@ namespace Web2020Test
 
             var bussController = new BussController(mockRep.Object, mockLog.Object);
 
-            mockSession[_loggetInn] = _ikkeLoggetInn;
+            mockSession[_loggetInn] = _loggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             bussController.ControllerContext.HttpContext = mockHttpContext.Object;
 
@@ -732,9 +732,50 @@ namespace Web2020Test
 
             // Assert 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
-            Assert.Equal(true, resultat.Value);
+            Assert.Equal("Logget inn", resultat.Value);
             //Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
             //Assert.True((bool)resultat.Value);
+        }
+
+        [Fact]
+        public async Task SisteBestillingOK()
+        {
+            var innBuss = new Buss()
+            {
+                reiserFra = "Oslo",
+                reiserTil = "Bergen",
+                pris = 599,
+                dag = "Torsdag",
+                tidspunkt = "11:50",
+                fornavn = "Ola",
+                etternavn = "Kristiansen",
+                epost = "ola1999@gmail.com",
+            };
+
+            mockRep.Setup(k => k.SisteBestilling()).ReturnsAsync(innBuss);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+
+            // Act
+            var resultat = await bussController.SisteBestilling() as OkObjectResult;
+
+            // Assert 
+            Assert.Equal(innBuss, resultat.Value);
+        }
+        [Fact]
+        public async Task SisteBestillingIkkeOK()
+        {
+            mockRep.Setup(k => k.SisteBestilling()).ReturnsAsync(It.IsAny<Buss>);
+
+            var bussController = new BussController(mockRep.Object, mockLog.Object);
+
+
+            // Act
+            var resultat = await bussController.SisteBestilling() as BadRequestObjectResult;
+
+            // Assert 
+            Assert.Equal("Fant ikke siste bestilling", resultat.Value);
         }
     }
 }

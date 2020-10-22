@@ -188,8 +188,9 @@ namespace Web2020.Controllers
             {
                 return Unauthorized("ikke logget inn");
             }
-            
+            //bool ok = await _db.ErLoggetInn();
             return Ok("Logget inn");
+           
         }
 
         public void LoggUt()

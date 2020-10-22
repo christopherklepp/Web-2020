@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using Web2020.DAL;
 
 namespace Web2020.Models
@@ -60,9 +61,50 @@ namespace Web2020.Models
                 admin.Passord = hash;
                 admin.Salt = salt;
                 db.Adminer.Add(admin);
+
+
+                var innBuss = new Buss()
+                {
+                    Id = 1,
+                    reiserFra = "Oslo",
+                    reiserTil = "Bergen",
+                    dag = "Mandag",
+                    tidspunkt = "11:00",
+                    fornavn = "Ola",
+                    etternavn = "Kristiansen",
+                    epost = "ola1999@gmail.com",
+                    pris = 299
+                };
+                /*var Reiser = new Reise
+                {
+                    reiserFra = innBuss.reiserFra,
+                    reiserTil = innBuss.reiserTil,
+                    dag = innBuss.dag,
+                    tidspunkt = innBuss.tidspunkt,
+                    pris = innBuss.pris
+                };*/
+                var Bestilling = new Bestilling()
+                {
+                    Bid = 1,
+                    reiser = reise4
+                };
+
+                var Kunde = new Kunde()
+                {
+                    Kid = 1,
+                    fornavn = innBuss.fornavn,
+                    etternavn = innBuss.etternavn,
+                    epost = innBuss.epost,
+                };
+                Kunde.Bestilling = new List<Bestilling>();
+                Kunde.Bestilling.Add(Bestilling);
+                db.Kunder.Add(Kunde);
+
                 db.SaveChanges();
 
+                
 
+                
             }
         }
     }
