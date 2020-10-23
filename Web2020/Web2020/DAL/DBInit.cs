@@ -22,7 +22,7 @@ namespace Web2020.Models
                 db.Database.EnsureCreated();
 
                 var reise1 = new Reise();
-                reise1.reiserFra = "Oslo";
+                reise1.reiserFra = "Kristiansand";
                 reise1.reiserTil = "Bergen";
                 reise1.pris = 299;
                 reise1.dag = "Mandag";
@@ -39,7 +39,7 @@ namespace Web2020.Models
                 db.Reiser.Add(reise2);
 
                 var reise3 = new Reise();
-                reise3.reiserFra = "Oslo";
+                reise3.reiserFra = "Stavanger";
                 reise3.reiserTil = "Trondheim";
                 reise3.pris = 599;
                 reise3.dag = "Torsdag";

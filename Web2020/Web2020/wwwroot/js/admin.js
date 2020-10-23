@@ -35,7 +35,8 @@ $(function () {
 //Sletter en reise
 function slett(id) {
     let url = "buss/SlettReise?id=" + id; 
-    $.get(url, function() {
+    $.get(url, function () {
+        $("#feil").html("<p> heihei</p>");
          window.location.href = "admin.html";
     })
     .fail(function () {

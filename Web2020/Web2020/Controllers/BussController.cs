@@ -171,6 +171,7 @@ namespace Web2020.Controllers
             {
                 return Unauthorized("Ikke logget inn");
             }
+
             bool returOK = await _db.SlettReise(id);
             if (!returOK)
             {
