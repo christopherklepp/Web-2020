@@ -1,4 +1,5 @@
-﻿function validerFra(fra) {
+﻿//Funksjoner for validering og feilmeldinger på admin sider
+function validerFra(fra) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
     const ok = regexp.test(fra);
     if (!ok) {

@@ -1,25 +1,108 @@
 {
   "format": 1,
   "restore": {
-    "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020Test/Web2020Test.csproj": {}
+    "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj": {}
   },
   "projects": {
-    "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/Web2020.csproj": {
+    "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/Web2020.csproj",
-        "projectName": "Web2020",
-        "projectPath": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/Web2020.csproj",
-        "packagesPath": "/Users/vikke/.nuget/packages/",
-        "outputPath": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/obj/",
+        "projectUniqueName": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj",
+        "projectName": "Web2020Test",
+        "projectPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj",
+        "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/vikke/.config/NuGet/NuGet.Config"
+          "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj": {
+                "projectPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "Moq.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2.6, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj",
+        "projectName": "Web2020",
+        "projectPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj",
+        "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -103,83 +186,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020Test/Web2020Test.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020Test/Web2020Test.csproj",
-        "projectName": "Web2020Test",
-        "projectPath": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020Test/Web2020Test.csproj",
-        "packagesPath": "/Users/vikke/.nuget/packages/",
-        "outputPath": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020Test/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/vikke/.config/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {
-              "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/Web2020.csproj": {
-                "projectPath": "/Users/vikke/Documents/GitHub/web2020/Web2020/Web2020/Web2020.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[16.5.0, )"
-            },
-            "Moq.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.2.6, )"
-            },
-            "coverlet.collector": {
-              "target": "Package",
-              "version": "[1.2.0, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.4.0, )"
-            },
-            "xunit.runner.visualstudio": {
-              "target": "Package",
-              "version": "[2.4.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

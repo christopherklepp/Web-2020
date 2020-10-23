@@ -1,4 +1,5 @@
-﻿function login() {
+﻿//Funksjon for at en admin kan logge inn
+function login() {
 
     const brukernavnOK = validerBrukernavn($("#brukernavn").val());
     const passordOK = validerPassord($("#passord").val());

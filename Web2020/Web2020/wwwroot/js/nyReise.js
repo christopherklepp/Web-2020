@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿//Navigerer vekk om ikke en admin er logget inn
+$(function () {
     $.get("buss/ErLoggetInn", function () {
 
     })
@@ -13,6 +14,7 @@
     $("#tid").val(tid);
 });
 
+//Funksjon for å sjekke at nødvendig informasjon er oppgitt
 function nyReiseValid() {
    
     const fraOK = validerFra($("#fra").val());
@@ -24,7 +26,7 @@ function nyReiseValid() {
     }
 }
 
-
+//Lagrer den nye reisen og navigerer tilbake til admin siden
 function lagre() {
     const reise = {
         reiserFra: $("#fra").val(),

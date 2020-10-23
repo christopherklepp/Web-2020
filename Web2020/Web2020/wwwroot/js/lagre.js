@@ -1,16 +1,15 @@
-﻿function requiredInfo() {
-    //const tidspunktOK = validerDato($("#tidspunkt").val());
+﻿//Sjekker at all info er fylt inn
+function requiredInfo() {
     const fornavnOK = validerFornavn($("#fornavn").val());
     const etternavnOK = validerEtternavn($("#etternavn").val());
     const epostOK = validerEpost($("#epost").val());
-    //let tid = $("#tidspunkt").val();
-    if (/*tidspunktOK && */fornavnOK && etternavnOK && epostOK) {
+    if (fornavnOK && etternavnOK && epostOK) {
 
         lagreBestilling();
     }
 }
 
-
+//Lagrer bestillingen og navigerer til side for bekreftelse
 function lagreBestilling() {
     let avganger = $("#avganger").val();
     let avgangerSplit = avganger.split(':');
@@ -42,7 +41,6 @@ function lagreBestilling() {
             $("#feil").html("Feil på server - prøv 'Bestill' igjen senere");
         }); 
 }
-
 
 $(function () {
     $.get("buss/HentReiser", function (reiser) {

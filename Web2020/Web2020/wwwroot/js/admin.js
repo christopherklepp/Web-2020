@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿//Henter reiser for admin og navigerer vekk om ikke en admin er logget inn
+$(function () {
     $.get("buss/HentReiserAdmin", function (reiser) {
         let ut = "<body>"+
             "<div class='container'>" +
@@ -31,6 +32,7 @@
         });
 });
 
+//Sletter en reise
 function slett(id) {
     let url = "buss/SlettReise?id=" + id; 
     $.get(url, function() {
@@ -41,6 +43,7 @@ function slett(id) {
     });
 }
 
+//Logg ut
 function loggUt() {
     let url = "buss/LoggUt";
     $.get(url, function () {

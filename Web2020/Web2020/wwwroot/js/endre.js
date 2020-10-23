@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿//Henter reisen som skal endres
+$(function () {
     const id = window.location.search.substring();
     console.log(id);
     const url = "buss/HentEnReise" + id;
@@ -20,6 +21,7 @@
         });
 });
 
+//Sjekker at reisen kan endres
 function endreReiseValid() {
     const fraOK = validerFra($("#fra").val());
     const tilOK = validerTil($("#til").val());
@@ -30,6 +32,7 @@ function endreReiseValid() {
     }
 }
 
+//Endrer en opprettet reise
 function endreReise() {
     const Reise = {
         Rid: $("#id").val(),
