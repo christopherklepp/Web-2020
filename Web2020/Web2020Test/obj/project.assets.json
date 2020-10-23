@@ -10496,19 +10496,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\98eiv\\.nuget\\packages\\": {}
+    "C:\\Users\\chris\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\98eiv\\source\\repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj",
+      "projectUniqueName": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj",
       "projectName": "Web2020Test",
-      "projectPath": "C:\\Users\\98eiv\\source\\repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj",
-      "packagesPath": "C:\\Users\\98eiv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\98eiv\\source\\repos\\web2020\\Web2020\\Web2020Test\\obj\\",
+      "projectPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\Web2020Test.csproj",
+      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\98eiv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10521,8 +10521,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\98eiv\\source\\repos\\web2020\\Web2020\\Web2020\\Web2020.csproj": {
-              "projectPath": "C:\\Users\\98eiv\\source\\repos\\web2020\\Web2020\\Web2020\\Web2020.csproj"
+            "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj": {
+              "projectPath": "C:\\Users\\chris\\Source\\Repos\\web2020\\Web2020\\Web2020\\Web2020.csproj"
             }
           }
         }

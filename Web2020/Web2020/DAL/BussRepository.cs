@@ -53,6 +53,8 @@ namespace Web2020.DAL
                 return null;
             }
         }
+
+        //Returnerer en liste over alle reiser for en admin
         public async Task<List<Reise>> HentReiserAdmin()
         {
             try
@@ -82,7 +84,6 @@ namespace Web2020.DAL
                 return null;
             }
         }
-
 
         //Lagrer bestilling til databasen, sjekker at bruker ikke alt er lagret i databasen
         [HttpPost]
@@ -152,6 +153,7 @@ namespace Web2020.DAL
             return buss;
         }
 
+        //Henter ut kun en reise
         public async Task<Reise> HentEnReise(int id)
         {
             try
@@ -165,6 +167,8 @@ namespace Web2020.DAL
             }
         }
 
+
+        //Muliggjør det å endre en allerede eksisterende reise
         public async Task<bool> Endre(Reise endretReise)
         {
             try
@@ -185,7 +189,7 @@ namespace Web2020.DAL
             return true;
         }
 
-
+        //Muliggjør det å slette en reise
         public async Task<bool> SlettReise(int id)
         {
             try
@@ -203,6 +207,7 @@ namespace Web2020.DAL
             }
         }
 
+        //Muliggjør det å lagre en reise
         public async Task<bool> LagreReise(Reise nyReise)
         {
             try
@@ -216,6 +221,8 @@ namespace Web2020.DAL
                 return false;
             }
         }
+
+        //Hash for passord
         public static byte[] LagHash(string passord, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(
@@ -226,6 +233,7 @@ namespace Web2020.DAL
                                 numBytesRequested: 32);
         }
 
+        //Salt for passord
         public static byte[] LagSalt()
         {
             var csp = new RNGCryptoServiceProvider();
@@ -234,6 +242,7 @@ namespace Web2020.DAL
             return salt;
         }
 
+        //Login 
         public async Task<bool> Login(Admin admin)
         {
             try
@@ -260,6 +269,8 @@ namespace Web2020.DAL
                 return false;
             }
         }
+
+        //Bool for om admin er logget inn
         public async Task<bool> ErLoggetInn()
         {
             return true;

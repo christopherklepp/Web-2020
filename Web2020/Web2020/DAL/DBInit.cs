@@ -6,6 +6,7 @@ using Web2020.DAL;
 
 namespace Web2020.Models
 {
+    //Sletter og oppretter databasen, initialiserer informasjon som skal være i databasen ved opprettelse
     public static class DBInit
     {
 

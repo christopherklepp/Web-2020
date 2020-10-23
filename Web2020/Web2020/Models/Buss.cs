@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Web2020.Models
 {
+    //Klasse for buss
     public class Buss
     {
         [Key]

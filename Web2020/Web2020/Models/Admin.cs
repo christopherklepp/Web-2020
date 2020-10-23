@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Web2020.Models
 {
+    //Klasse for admin
     public class Admin
     {
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ. \-]{2,20}$")]
