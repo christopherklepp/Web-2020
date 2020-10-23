@@ -75,14 +75,6 @@ namespace Web2020.Models
                     epost = "ola1999@gmail.com",
                     pris = 299
                 };
-                /*var Reiser = new Reise
-                {
-                    reiserFra = innBuss.reiserFra,
-                    reiserTil = innBuss.reiserTil,
-                    dag = innBuss.dag,
-                    tidspunkt = innBuss.tidspunkt,
-                    pris = innBuss.pris
-                };*/
                 var Bestilling = new Bestilling()
                 {
                     Bid = 1,
